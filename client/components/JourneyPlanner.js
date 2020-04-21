@@ -1,16 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Input } from 'react-native-elements';
 
 const JourneyPlanner = () => {
   return (
     <View style={styles.container}>
-      <TextInput></TextInput>
-      <Text>Open up to start working on your app!</Text>
+      <Input
+        placeholder='INPUT WITH ICON'
+        leftIcon={{ type: 'font-awesome', name: 'home' }}
+      />
+      <Input
+        placeholder='INPUT WITH CUSTOM ICON'
+        leftIcon={{ type: 'font-awesome', name: 'briefcase' }}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: 300,
+  }
 });
 
 export default JourneyPlanner
