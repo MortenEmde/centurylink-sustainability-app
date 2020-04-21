@@ -4,6 +4,7 @@ import JourneyPlanner from './components/JourneyPlanner';
 import Cycling from './components/Cycling';
 import Walking from './components/Walking';
 import AllTransport from './components/AllTransport';
+import GoButton from './components/GoButton'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Cycling />
       <Walking />
       <AllTransport />
+      <GoButton /> 
     </View>
   );
 }

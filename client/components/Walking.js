@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faWalking } from '@fortawesome/free-solid-svg-icons'
 
