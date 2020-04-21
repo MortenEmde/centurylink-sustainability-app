@@ -6,21 +6,21 @@ const JourneyPlanner = () => {
   return (
     <View style={styles.container}>
       <Input
-        placeholder='INPUT WITH ICON'
+        placeholder="  Add your departure location"
         leftIcon={{ type: 'font-awesome', name: 'home' }}
       />
       <Input
-        placeholder='INPUT WITH CUSTOM ICON'
+        placeholder="  Add your destination"
         leftIcon={{ type: 'font-awesome', name: 'briefcase' }}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     width: 300,
-  }
+  },
 });
 
-export default JourneyPlanner
+export default JourneyPlanner;
