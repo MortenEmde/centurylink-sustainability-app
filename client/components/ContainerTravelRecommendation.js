@@ -5,7 +5,7 @@ import CardTravelRecommendation from './CardTravelRecommendation';
 const ContainerTravelRecommendation = () => {
   return (
     <View>
-      <TravelRecommendationCard></TravelRecommendationCard>
+      <CardTravelRecommendation />
     </View>
   )
 }
