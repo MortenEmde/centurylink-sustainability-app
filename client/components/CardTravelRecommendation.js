@@ -4,25 +4,43 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
+const CardTravelRecommendation = (props) => {
 
-const CardTravelRecommendation = async () => {
-
-  const unparsedData = await fetch('http://localhost:5000/api') 
-  const data = await unparsedData.json();
-  
   return (
     <View>
       <Card containerStyle={{ padding: 0 }}>
         <View>
-          <Text style={{ marginBottom: 10 }}>{data.cyclingObject.cyclingDurationText}</Text>
-          <Text style={{ marginBottom: 10 }}>{u.rows[0].elements[0].distance.value}</Text>
-          <Text style={{ marginBottom: 10 }}>{u.rows[0].elements[0].duration.value}</Text>
+          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
+          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
+          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
         </View>
       </Card>
     </View>
   );
 }
+// [
+//   {
+//       "method": "cycling",
+//       "time": "34 mins",
+//       "timeValue": 2018,
+//       "healthPoints": 3,
+//       "sustainabilityPoints": 4
+//   },
+//   {
+//       "method": "walking",
+//       "time": "2 hours 2 mins",
+//       "timeValue": 7296,
+//       "healthPoints": 10,
+//       "sustainabilityPoints": 7
+//   },
+//   {
+//       "method": "driving",
+//       "time": "11 mins",
+//       "timeValue": 665,
+//       "healthPoints": 5,
+//       "sustainabilityPoints": 5
+//   }
+// ]
 
-const cyclingObject = { cyclingDurationText, cyclingDistanceValue, cyclingDurationValue };
 
 export default CardTravelRecommendation
