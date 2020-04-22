@@ -6,10 +6,10 @@ import { faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-sv
 
 const PreferenceButton = ({ type }) => {
   const icon = {
-    star: faStar,
-    environment: faLeaf,
-    health: faHeartbeat,
-    time: faClock,
+    star: { name: faStar, color: 'yellow' },
+    environment: { name: faLeaf, color: 'green' },
+    health: { name: faHeartbeat, color: 'red' },
+    time: { name: faClock, color: 'white' },
   };
 
   return (
@@ -17,7 +17,11 @@ const PreferenceButton = ({ type }) => {
       <Button
         buttonStyle={styles.button}
         icon={
-          <FontAwesomeIcon style={styles.icon} icon={icon[type]} size={45} />
+          <FontAwesomeIcon
+            style={{ color: icon[type].color }}
+            icon={icon[type].name}
+            size={45}
+          />
         }
       />
     </View>
@@ -25,9 +29,6 @@ const PreferenceButton = ({ type }) => {
 };
 
 const styles = StyleSheet.create({
-  icon: {
-    color: 'white',
-  },
   button: {
     backgroundColor: 'darkslateblue',
     width: 80,
