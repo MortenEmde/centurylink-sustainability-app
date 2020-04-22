@@ -1,28 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from './components/JourneyPlanner';
-import Cycling from './components/Cycling';
-import Walking from './components/Walking';
-import AllTransport from './components/AllTransport';
-import GoButton from './components/GoButton'
+import PreferenceButton from './components/PreferenceButton';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <JourneyPlanner />
-      <Cycling />
-      <Walking />
-      <AllTransport />
-      <GoButton /> 
+      <View style={styles.preferenceButtons}>
+        <PreferenceButton type="star" />
+        <PreferenceButton type="environment" />
+        <PreferenceButton type="health" />
+        <PreferenceButton type="time" />
+      </View>
+      <View style={styles.listContainer}>
+
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 50,
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  preferenceButtons: {
+    flexDirection: 'row',
+  },
+  listContainer: {
+    
+  }
 });
