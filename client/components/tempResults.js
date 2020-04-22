@@ -1,31 +1,24 @@
 import { ListItem } from 'react-native-elements'
 import React from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
 
 
 const ListGen = () => {
   const list = [
     {
-      name: 'Amy Farha',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
+      transportIcon: faBicycle,
     },
     {
-      name: 'Chris Jackson',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
+      transportIcon: faWalking,
     },
     {
-      name: 'Amy Farha',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
+      transportIcon: faCarSide,
     },
     {
-      name: 'Chris Jackson',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
+      transportIcon: faShuttleVan,
     },
   ];
 
@@ -33,9 +26,10 @@ const ListGen = () => {
 
   renderItem = ({ item }) => (
     <ListItem
-      title={item.name}
-      subtitle={item.subtitle}
-      leftAvatar={{ source: { uri: item.avatar_url } }}
+      style={styles.listItem}
+      leftAvatar={<FontAwesomeIcon icon={item.transportIcon} size={35}/>}
+      title={<View><FontAwesomeIcon icon={faLeaf} size={15}/><Text>5</Text></View>}
+      subtitle={<View><FontAwesomeIcon icon={faHeartbeat} size={15}/><Text>5</Text></View>}
       bottomDivider
       chevron
     />
@@ -54,8 +48,10 @@ const ListGen = () => {
 
 const styles = StyleSheet.create({
   listItems: {
-    width: 350
-  }
+    width: 350,
+  },
+  listItem: {
+  },
 }) 
 
 export default ListGen
