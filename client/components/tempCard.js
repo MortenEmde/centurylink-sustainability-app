@@ -6,25 +6,45 @@ import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartb
 
 
 const CardGen = () => {
-
-  const users = [
-    {
-       name: 'morten',
-       avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    },
-
-   ]
    
+   const cycling = [
+    {
+      destination_addresses: [
+         "Stekkenbergweg 4, 1105 AJ Amsterdam, Netherlands"
+      ],
+      origin_addresses: [
+         "Fred. Roeskestraat 115, 1076 EE Amsterdam, Netherlands"
+      ],
+      rows: [
+         {
+            elements: [
+               {
+                  distance: {
+                     text: "10.0 km",
+                     value: 10041
+                  },
+                  duration: {
+                     text: "34 mins",
+                     value: 2018
+                  },
+                  status: "OK"
+               }
+            ]
+         }
+      ],
+      status: "OK"
+    }
+   ]
   
    return (
      <View>
        <Card containerStyle={{ padding: 0 }}>
-         {users.map((u, i) => {
+         {cycling.map((u, i) => {
            return (
              <View>
-               <Text style={{ marginBottom: 10 }}>{u.name}</Text>
-               <Text style={{ marginBottom: 10 }}>{u.name}</Text>
-               <Text style={{ marginBottom: 10 }}>{u.name}</Text>
+               <Text style={{ marginBottom: 10 }}>{u.rows[0].elements[0].duration.text}</Text>
+               <Text style={{ marginBottom: 10 }}>{u.rows[0].elements[0].distance.value}</Text>
+               <Text style={{ marginBottom: 10 }}>{u.rows[0].elements[0].duration.value}</Text>
              </View>
            );
          })}
