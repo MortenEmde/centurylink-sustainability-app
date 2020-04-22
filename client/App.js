@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from './components/JourneyPlanner';
 import PreferenceButton from './components/PreferenceButton';
+import ListGen from './components/tempResults';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
         <PreferenceButton type="time" />
       </View>
       <View style={styles.listContainer}>
-
+        <ListGen />
       </View>
     </View>
   );
