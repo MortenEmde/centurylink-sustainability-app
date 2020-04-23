@@ -9,7 +9,7 @@ const ContainerTravelRecommendation = () => {
     const unparsedData = await fetch('http://localhost:5000/api', {method: 'POST'}) 
     const data = await unparsedData.json();
     setJourneyData(data);
-  }
+  };
 
   useEffect(() => {
     fetchData();
@@ -21,17 +21,19 @@ const ContainerTravelRecommendation = () => {
   // }
 
   const endResult = () => {
-    return <CardTravelRecommendation journeyInfo={journeyData}/>
-  }
+    if (journeyData.length !== 0) {
+      return <CardTravelRecommendation journeyInfo={journeyData} />;
+    }
+  };
 
   return (
     <View>
       {console.log('journeyData', journeyData)}
       {endResult()}
     </View>
-  )
-}
+  );
+};
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
 
-export default ContainerTravelRecommendation
+export default ContainerTravelRecommendation;

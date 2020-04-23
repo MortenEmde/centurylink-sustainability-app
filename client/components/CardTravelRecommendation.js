@@ -4,15 +4,15 @@ import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
-const CardTravelRecommendation = (props) => {
+const CardTravelRecommendation = ({ journeyInfo }) => {
 
   return (
     <View>
       <Card containerStyle={{ padding: 0 }}>
         <View>
-          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
-          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
-          <Text style={{ marginBottom: 10 }}>{props.journeyInfo}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].time}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].healthPoints}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].sustainabilityPoints}</Text>
         </View>
       </Card>
     </View>
