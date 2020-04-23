@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const Journeys = require('../models/journeySchema');
+// const { getJourneys, addJourney } = require('../controllers/journeyController');
+
 
 router.post('/', async function(req, res, next) {
   // origin and destination come from request
@@ -26,8 +28,6 @@ router.post('/', async function(req, res, next) {
     return request;
   }
 
-
-
   const transportData = async (travelMethod) => {
     //add addresses here
     const result = await fetchJourney(travelMethod);
@@ -46,8 +46,7 @@ router.post('/', async function(req, res, next) {
   }
   
   res.send(await endResult());
+  
 });
-
-
 
 module.exports = router;

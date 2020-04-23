@@ -11,6 +11,8 @@ const apiRouter = require('./routes/api');
 const usersRouter = require('./routes/users');
 const cors = require('cors');
 dotenv.config({path: './config/config.env'});
+//Mongo test route
+const journeys = require('./routes/temp_journeyDB');
 
 connectDB();
 
@@ -30,6 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
+// When making a request to below, it will route to transactions.js
+app.use('/api/journeys', journeys);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
