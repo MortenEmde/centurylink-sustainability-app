@@ -1,67 +1,70 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, TouchableOpacity, onPress } from 'react-native'
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const CardTravelRecommendation = ({ journeyInfo }) => {
   const iconCheck = () => {
-  if (journeyInfo.method === 'cycling') {
-    return faBicycle
-  } else if (journeyInfo.method === 'walking') {
-    return faWalking
-  } else if (journeyInfo.method === 'driving') {
-    return faCarSide
-  }
-}
+    if (journeyInfo.method === 'cycling') {
+      return faBicycle;
+    } else if (journeyInfo.method === 'walking') {
+      return faWalking;
+    } else if (journeyInfo.method === 'driving') {
+      return faCarSide;
+    }
+  };
 
   return (
     <View>
-      <Card style={styles.card}>
-        <View style={styles.mainContainer}>
-          <View style={styles.logoContainer}>
-            <FontAwesomeIcon
-              icon={iconCheck()}
-              style={styles.mainIcon}
-              size={60}
-            />
-          </View>
-
-          <View style={styles.pointsContainer}>
-            <Text style={styles.pointText}>
-              {' '}
+      <TouchableOpacity onPress={onPress}>
+        <Card style={styles.card}>
+          <View style={styles.mainContainer}>
+            <View style={styles.logoContainer}>
               <FontAwesomeIcon
-                icon={faHeartbeat}
-                style={styles.heartIcon}
-                size={30}
-              />{' '}
-              {journeyInfo.healthPoints}
-            </Text>
-
-            <Text style={styles.pointText}>
-              <FontAwesomeIcon
-                icon={faLeaf}
-                style={styles.leafIcon}
-                size={30}
-              />{'  '}
-              {journeyInfo.sustainabilityPoints}
-            </Text>
-          </View>
-          <View style={styles.clockContainer}>
-            <Text>
-              <FontAwesomeIcon
-                icon={faClock}
-                style={styles.clockIcon}
-                size={30}
+                icon={iconCheck()}
+                style={styles.mainIcon}
+                size={60}
               />
-            </Text>
-            <Text style={styles.clockText}>{journeyInfo.time}</Text>
+            </View>
+
+            <View style={styles.pointsContainer}>
+              <Text style={styles.pointText}>
+                {' '}
+                <FontAwesomeIcon
+                  icon={faHeartbeat}
+                  style={styles.heartIcon}
+                  size={30}
+                />{' '}
+                {journeyInfo.healthPoints}
+              </Text>
+
+              <Text style={styles.pointText}>
+                <FontAwesomeIcon
+                  icon={faLeaf}
+                  style={styles.leafIcon}
+                  size={30}
+                />
+                {'  '}
+                {journeyInfo.sustainabilityPoints}
+              </Text>
+            </View>
+            <View style={styles.clockContainer}>
+              <Text>
+                <FontAwesomeIcon
+                  icon={faClock}
+                  style={styles.clockIcon}
+                  size={30}
+                />
+              </Text>
+              <Text style={styles.clockText}>{journeyInfo.time}</Text>
+            </View>
           </View>
-        </View>
-      </Card>
+        </Card>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   pointText: {
@@ -71,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   card: {
+
     padding: 0,
     margin: 0,
   },
