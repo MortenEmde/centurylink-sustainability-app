@@ -18,16 +18,13 @@ exports.getJourneys = async (req, res, next) => {
 // @desc      Add Journey
 // @route     POST /api/Journeys
 // @access    Public
-exports.addJourney = async (req, res, next) => {
+exports.addJourney = async (data, res, next) => {
   try {
-    const { method, origin, destination, time, timeValue, healthPoints, sustainabilityPoints } = req.body;
+    // const { method, origin, destination, time, timeValue, healthPoints, sustainabilityPoints } = data;
 
-    const journey = await Journey.create(req.body);
+    const journey = await Journey.create(data);
 
-    return res.status(201).json({
-      success: true,
-      data: journey
-    });
+    return journey;
 
   } catch (err) {
     if(err.name === 'ValidationError') {

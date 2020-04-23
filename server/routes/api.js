@@ -25,7 +25,6 @@ router.post('/', async function(req, res, next) {
     res.send(databaseHits);
 
   } else {
-    // do other stuff
     const travelMethods = ['cycling', 'walking', 'driving']
   
     const fetchJourney = async (travelMethod) => {
@@ -52,6 +51,8 @@ router.post('/', async function(req, res, next) {
     const endResult = async () => {
       return Promise.all(travelMethods.map(transportData))
     }
+
+    addJourney(await endResult());
     // Save to mongoDB!! => journeyController
     res.send(await endResult());
   }
