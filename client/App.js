@@ -16,7 +16,7 @@ export default function App() {
         <PreferenceButton type="time" />
       </View>
       <View style={styles.listContainer}>
-        <ContainerTravelRecommendation />
+        <ContainerTravelRecommendation /> 
       </View>
     </View>
   );
