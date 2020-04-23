@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
 const ContainerTravelRecommendation = () => {

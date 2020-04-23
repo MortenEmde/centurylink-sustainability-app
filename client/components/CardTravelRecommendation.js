@@ -5,14 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const CardTravelRecommendation = ({ journeyInfo }) => {
+  const iconCheck = () => {
+  if (journeyInfo.method === 'cycling') {
+    return faBicycle
+  } else if (journeyInfo.method === 'walking') {
+    return faWalking
+  } else if (journeyInfo.method === 'driving') {
+    return faCarSide
+  }
+}
 
   return (
     <View>
-      <Card containerStyle={{ padding: 0 }}>
+      <Card containerStyle={{ padding: 0, width: 300 }}>
         <View>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo.time}</Text>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo.healthPoints}</Text>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo.sustainabilityPoints}</Text>
+          <FontAwesomeIcon icon={iconCheck()} size={35}/>
+          <Text style={{ marginBottom: 10 }}>  <FontAwesomeIcon icon={faClock} size={15}/>{journeyInfo.time}</Text>
+          <Text style={{ marginBottom: 10 }}> <FontAwesomeIcon icon={faHeartbeat} size={15}/>{journeyInfo.healthPoints}</Text>
+          <Text style={{ marginBottom: 10 }}> <FontAwesomeIcon icon={faLeaf} size={15}/>{journeyInfo.sustainabilityPoints}</Text>
         </View>
       </Card>
     </View>
