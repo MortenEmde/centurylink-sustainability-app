@@ -6,11 +6,7 @@ const Journey = require('../models/journeySchema');
 exports.getJourneys = async (req, res, next) => {
   try {
     const journeys = await Journey.find();
-    return res.status(200).json({
-      success: true,
-      count: journeys.length,
-      data: journeys
-    })
+    return journeys;
   } catch (err) {
     return res.status(500).json({
       success: false,
