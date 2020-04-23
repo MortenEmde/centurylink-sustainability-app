@@ -36,8 +36,9 @@ const ContainerTravelRecommendation = () => {
         <FlatList
           data={journeyData}
           renderItem={(travelOption) => (
-            <View>
+            <View style={styles.container}>
               <CardTravelRecommendation
+                style={styles.card}
                 journeyInfo={endResult(travelOption.item)}
               />
             </View>
@@ -57,6 +58,9 @@ const ContainerTravelRecommendation = () => {
           </View>
         )} 
       /> */
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+  card: {},
+});
 
 export default ContainerTravelRecommendation;

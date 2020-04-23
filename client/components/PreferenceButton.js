@@ -31,8 +31,8 @@ const PreferenceButton = ({ type }) => {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'darkslateblue',
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     margin: 10,
   },
 });

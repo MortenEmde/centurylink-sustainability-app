@@ -17,17 +17,99 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
 
   return (
     <View>
-      <Card containerStyle={{ padding: 0, width: 300 }}>
-        <View>
-          <FontAwesomeIcon icon={iconCheck()} size={35}/>
-          <Text style={{ marginBottom: 10 }}>  <FontAwesomeIcon icon={faClock} size={15}/>{journeyInfo.time}</Text>
-          <Text style={{ marginBottom: 10 }}> <FontAwesomeIcon icon={faHeartbeat} size={15}/>{journeyInfo.healthPoints}</Text>
-          <Text style={{ marginBottom: 10 }}> <FontAwesomeIcon icon={faLeaf} size={15}/>{journeyInfo.sustainabilityPoints}</Text>
+      <Card style={styles.card}>
+        <View style={styles.mainContainer}>
+          <View style={styles.logoContainer}>
+            <FontAwesomeIcon
+              icon={iconCheck()}
+              style={styles.mainIcon}
+              size={60}
+            />
+          </View>
+
+          <View style={styles.pointsContainer}>
+            <Text style={styles.pointText}>
+              {' '}
+              <FontAwesomeIcon
+                icon={faHeartbeat}
+                style={styles.heartIcon}
+                size={30}
+              />{' '}
+              {journeyInfo.healthPoints}
+            </Text>
+
+            <Text style={styles.pointText}>
+              <FontAwesomeIcon
+                icon={faLeaf}
+                style={styles.leafIcon}
+                size={30}
+              />{'  '}
+              {journeyInfo.sustainabilityPoints}
+            </Text>
+          </View>
+          <View style={styles.clockContainer}>
+            <Text>
+              <FontAwesomeIcon
+                icon={faClock}
+                style={styles.clockIcon}
+                size={30}
+              />
+            </Text>
+            <Text style={styles.clockText}>{journeyInfo.time}</Text>
+          </View>
         </View>
       </Card>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  pointText: {
+    fontSize: 25,
+  },
+  clockText: {
+    fontSize: 13,
+  },
+  card: {
+    padding: 0,
+    margin: 0,
+  },
+  mainContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 300,
+  },
+  logoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+  },
+  pointsContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+  },
+  clockContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+  },
+  heartIcon: {
+    color: 'red',
+  },
+  leafIcon: {
+    color: 'green',
+  },
+  clockIcon: {
+    color: 'black',
+    marginBottom: 10,
+  },
+  mainIcon: {
+    color: 'black',
+  },
+});
+
+
 // [
 //   {
 //       "method": "cycling",

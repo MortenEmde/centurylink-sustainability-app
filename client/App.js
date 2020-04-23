@@ -16,7 +16,7 @@ export default function App() {
         <PreferenceButton type="time" />
       </View>
       <View style={styles.listContainer}>
-        <ContainerTravelRecommendation /> 
+        <ContainerTravelRecommendation />
       </View>
     </View>
   );
@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
   },
   preferenceButtons: {
     flexDirection: 'row',
+    marginTop: 10,
   },
-  listContainer: {
-    
-  }
+  listContainer: {},
 });
