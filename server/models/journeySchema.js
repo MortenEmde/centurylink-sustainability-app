@@ -1,21 +1,40 @@
 const mongoose = require('mongoose');
 
 const journeySchema = new mongoose.Schema({
-  destination_addresses: {
+  destination: {
     type: String,
     trim: true,
-    required: [true, 'Please add some text']
+    required: [true, 'Please provide destination']
   },
-  origin_addresses: {
+  origin: {
     type: String,
-    required: [true, 'Please add a positive or negative number']
+    required: [true, 'Please provide origin']
+  },
+  method: {
+    type: String,
+    required: [true, 'Please provide method']
+  },
+  time: {
+    type: String,
+    required: [true, 'Please provide time']
+  },
+  timeValue: {
+    type: Number,
+    required: [true, 'Please provide timevalue']
+  },
+  healthPoints: {
+    type: Number,
+    required: [true, 'Please provide healthpoints']
+  },
+  sustainabilityPoints: {
+    type: Number,
+    required: [true, 'Please provide sustainabilitypoints']
   },
   createdAt: {
     type: Date,
     default: Date.now
   }
+  // updatedAt
 });
 
 module.exports = mongoose.model('Journey', journeySchema);
-
-travelMethod, time, timeValue, healthPoints, sustainabilityPoints
