@@ -10,9 +10,9 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
     <View>
       <Card containerStyle={{ padding: 0 }}>
         <View>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].time}</Text>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].healthPoints}</Text>
-          <Text style={{ marginBottom: 10 }}>{journeyInfo[0].sustainabilityPoints}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo.time}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo.healthPoints}</Text>
+          <Text style={{ marginBottom: 10 }}>{journeyInfo.sustainabilityPoints}</Text>
         </View>
       </Card>
     </View>

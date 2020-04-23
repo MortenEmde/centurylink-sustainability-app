@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
 const ContainerTravelRecommendation = () => {
   const [journeyData, setJourneyData] = useState([]);
 
   const fetchData = async () => {
-    const unparsedData = await fetch('http://localhost:5000/api', {method: 'POST'}) 
+    const unparsedData = await fetch('http://localhost:5000/api', {
+      method: 'POST',
+    });
     const data = await unparsedData.json();
     setJourneyData(data);
   };
@@ -16,24 +18,45 @@ const ContainerTravelRecommendation = () => {
   }, []);
 
   // const endResult = async () => {
-  //   return await Promise.all(data.map((item, index) => 
+  //   return await Promise.all(data.map((item, index) =>
   //     <CardTravelRecommendation key={index} journeyInfo={item.time}/>))
   // }
 
-  const endResult = () => {
-    if (journeyData.length !== 0) {
-      return <CardTravelRecommendation journeyInfo={journeyData} />;
+  const endResult = (travelOption) => {
+    if (travelOption) {
+      //return <CardTravelRecommendation journeyInfo={journeyData} />;
+      console.log('travelOption:', travelOption);
+      return travelOption;
     }
   };
 
   return (
     <View>
-      {console.log('journeyData', journeyData)}
-      {endResult()}
+      <View>
+        <FlatList
+          data={journeyData}
+          renderItem={(travelOption) => (
+            <View>
+              <CardTravelRecommendation
+                journeyInfo={endResult(travelOption.item)}
+              />
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 };
 
+/* 
+<FlatList 
+        data={courseGoals}
+        renderItem={itemData => (
+          <View style={styles.listItem}>
+            <Text>{itemData.item.value}</Text>
+          </View>
+        )} 
+      /> */
 const styles = StyleSheet.create({});
 
 export default ContainerTravelRecommendation;
