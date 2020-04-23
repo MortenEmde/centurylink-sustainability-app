@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const Journeys = require('../models/journeySchema');
-// const { getJourneys, addJourney } = require('../controllers/journeyController');
+const { getJourneys, addJourney } = require('../controllers/journeyController');
 
 
 router.post('/', async function(req, res, next) {
@@ -13,9 +13,8 @@ router.post('/', async function(req, res, next) {
   // (the front end will take care of sorting and presentation)
   const request_origin = req.body.origin;
   const request_destination = req.body.destination;
-  const journeys = await Journeys.find()
-
-  console.log(journeys);
+  
+  console.log('getJourneys:', Promise.all(getJourneys()));
   // if request_origin and request_destination exist in database ...
 
   const travelMethods = ['cycling', 'walking', 'driving']
