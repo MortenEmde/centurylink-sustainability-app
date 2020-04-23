@@ -19,12 +19,15 @@ router.post('/', async function(req, res, next) {
     return request;
   }
 
+
   const transportData = async (travelMethod) => {
+    //add addresses here
     const result = await fetchJourney(travelMethod);
     const time = await result.rows[0].elements[0].duration.text;
     const timeValue = await result.rows[0].elements[0].duration.value;
     const healthPoints = Math.floor(Math.random() * 10) + 1;
     const sustainabilityPoints = Math.floor(Math.random() * 10) + 1;
+    // store this in database, and add origin/dest adress. 
     return {method: travelMethod, time, timeValue, healthPoints, sustainabilityPoints}
   }
 
