@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from './components/JourneyPlanner';
 import PreferenceButton from './components/PreferenceButton';
-// import ListGen from './components/tempResults';
 import ContainerTravelRecommendation from './components/ContainerTravelRecommendation'
 
 export default function App() {
@@ -33,5 +32,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 10,
   },
+  // TBC styles
   listContainer: {},
 });

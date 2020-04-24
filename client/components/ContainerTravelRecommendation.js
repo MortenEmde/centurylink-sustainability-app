@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
 const ContainerTravelRecommendation = () => {
@@ -17,15 +17,8 @@ const ContainerTravelRecommendation = () => {
     fetchData();
   }, []);
 
-  // const endResult = async () => {
-  //   return await Promise.all(data.map((item, index) =>
-  //     <CardTravelRecommendation key={index} journeyInfo={item.time}/>))
-  // }
-
-  const endResult = (travelOption) => {
+  const travelOptionCheck = (travelOption) => {
     if (travelOption) {
-      //return <CardTravelRecommendation journeyInfo={journeyData} />;
-      console.log('travelOption:', travelOption);
       return travelOption;
     }
   };
@@ -39,7 +32,7 @@ const ContainerTravelRecommendation = () => {
             <View style={styles.container}>
               <CardTravelRecommendation
                 style={styles.card}
-                journeyInfo={endResult(travelOption.item)}
+                journeyInfo={travelOptionCheck(travelOption.item)}
               />
             </View>
           )}
@@ -49,15 +42,7 @@ const ContainerTravelRecommendation = () => {
   );
 };
 
-/* 
-<FlatList 
-        data={courseGoals}
-        renderItem={itemData => (
-          <View style={styles.listItem}>
-            <Text>{itemData.item.value}</Text>
-          </View>
-        )} 
-      /> */
+// TBC styles
 const styles = StyleSheet.create({
   container: {},
   card: {},

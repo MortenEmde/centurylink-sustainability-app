@@ -1,8 +1,8 @@
-import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity, onPress } from 'react-native'
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import React from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, onPress } from 'react-native';
+import { Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBicycle, faWalking, faCarSide, faShuttleVan, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faBicycle, faWalking, faCarSide, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const CardTravelRecommendation = ({ journeyInfo }) => {
   const iconCheck = () => {
@@ -20,7 +20,7 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
       <TouchableOpacity onPress={onPress}>
         <Card style={styles.card}>
           <View style={styles.mainContainer}>
-            <View style={styles.logoContainer}>
+            <View style={styles.subContainer}>
               <FontAwesomeIcon
                 icon={iconCheck()}
                 style={styles.mainIcon}
@@ -28,7 +28,7 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
               />
             </View>
 
-            <View style={styles.pointsContainer}>
+            <View style={styles.subContainer}>
               <Text style={styles.pointText}>
                 {' '}
                 <FontAwesomeIcon
@@ -49,7 +49,7 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
                 {journeyInfo.sustainabilityPoints}
               </Text>
             </View>
-            <View style={styles.clockContainer}>
+            <View style={styles.subContainer}>
               <Text>
                 <FontAwesomeIcon
                   icon={faClock}
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   card: {
-
     padding: 0,
     margin: 0,
   },
@@ -83,17 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: 300,
   },
-  logoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 100,
-  },
-  pointsContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 100,
-  },
-  clockContainer: {
+  subContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     width: 100,
@@ -113,30 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-// [
-//   {
-//       "method": "cycling",
-//       "time": "34 mins",
-//       "timeValue": 2018,
-//       "healthPoints": 3,
-//       "sustainabilityPoints": 4
-//   },
-//   {
-//       "method": "walking",
-//       "time": "2 hours 2 mins",
-//       "timeValue": 7296,
-//       "healthPoints": 10,
-//       "sustainabilityPoints": 7
-//   },
-//   {
-//       "method": "driving",
-//       "time": "11 mins",
-//       "timeValue": 665,
-//       "healthPoints": 5,
-//       "sustainabilityPoints": 5
-//   }
-// ]
-
-
-export default CardTravelRecommendation
+export default CardTravelRecommendation;
