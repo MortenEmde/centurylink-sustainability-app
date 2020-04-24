@@ -1,6 +1,6 @@
 const Journey = require('../models/journeySchema');
 
-// @desc      GET all journeys
+// @desc      GET all Journeys
 // @route     GET /api/Journeys
 // @access    Public
 exports.getJourneys = async (req, res, next) => {
@@ -20,12 +20,8 @@ exports.getJourneys = async (req, res, next) => {
 // @access    Public
 exports.addJourney = async (data, res, next) => {
   try {
-    // const { method, origin, destination, time, timeValue, healthPoints, sustainabilityPoints } = data;
-
     const journey = await Journey.create(data);
-
     return journey;
-
   } catch (err) {
     if(err.name === 'ValidationError') {
       const messages = Object.values(err.errors).map(val => val.message);

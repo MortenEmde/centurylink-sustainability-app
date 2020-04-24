@@ -33,8 +33,16 @@ const journeySchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
-  // updatedAt
+});
+
+journeySchema.pre('save', function(next) {
+  this.updatedAt = Date.now();
+  return next();
 });
 
 module.exports = mongoose.model('Journey', journeySchema);
