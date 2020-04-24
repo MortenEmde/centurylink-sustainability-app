@@ -27,6 +27,7 @@ const ContainerTravelRecommendation = () => {
     <View>
       <View>
         <FlatList
+          keyExtractor = {item => item.method}
           data={journeyData}
           renderItem={(travelOption) => (
             <View style={styles.container}>
