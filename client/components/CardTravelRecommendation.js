@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, onPress } from 'react-native';
 import { Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBicycle, faWalking, faCarSide, faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faBicycle, faWalking, faCarSide, faShuttleVan, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const CardTravelRecommendation = ({ journeyInfo }) => {
   const iconCheck = () => {
@@ -12,6 +12,8 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
       return faWalking;
     } else if (journeyInfo.method === 'driving') {
       return faCarSide;
+    } else if (journeyInfo.method === 'transit') {
+      return faShuttleVan;
     }
   };
 

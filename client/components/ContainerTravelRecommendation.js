@@ -25,8 +25,12 @@ const ContainerTravelRecommendation = ({ preference }) => {
 
   const sortFunction = (a, b, preference) => {
     if (preference === 'star') {
-      return (b.healthPoints + b.sustainabilityPoints) - (a.healthPoints + a.sustainabilityPoints);
-    } 
+      return (
+        b.healthPoints +
+        b.sustainabilityPoints -
+        (a.healthPoints + a.sustainabilityPoints)
+      );
+    }
     if (preference === 'time') {
       return a.timeValue - b.timeValue;
     }
@@ -34,33 +38,29 @@ const ContainerTravelRecommendation = ({ preference }) => {
       return b.sustainabilityPoints - a.sustainabilityPoints;
     }
     return b.healthPoints - a.healthPoints;
-  }
+  };
 
   return (
-    <View>
-      <View>
-        <FlatList
-          data={journeyData.sort((a, b) => sortFunction(a, b, preference))}
-          keyExtractor={(_, index) => index.toString()}
-          extraData={preference}
-          renderItem={(travelOption) => (
-            <View style={styles.container}>
-              <CardTravelRecommendation
-                style={styles.card}
-                journeyInfo={travelOptionCheck(travelOption.item)}
-              />
-            </View>
-          )}
+    <View style={styles.flatListContainer}>
+      <FlatList
+        style={styles.journeyList}
+        data={journeyData.sort((a, b) => sortFunction(a, b, preference))}
+        keyExtractor={(_, index) => index.toString()}
+        extraData={preference}
+        renderItem={(travelOption) => (
+        <CardTravelRecommendation
+          journeyInfo={travelOptionCheck(travelOption.item)}
         />
-      </View>
+        )}
+      />
     </View>
   );
 };
 
 // TBC styles
 const styles = StyleSheet.create({
-  container: {},
-  card: {},
+  flatListContainer: {
+  },
 });
 
 export default ContainerTravelRecommendation;

@@ -17,7 +17,7 @@ router.post('/', async function(req, res, next) {
       res.send(databaseHits);
       
     } else { // route doesn't yet exists in database, hit API and store it in database
-    const travelMethods = ['cycling', 'walking', 'driving']
+    const travelMethods = ['cycling', 'walking', 'driving', 'transit']
   
     const fetchJourney = async (travelMethod) => {
       // const request = await fetch(`INSERT URL HERE`);

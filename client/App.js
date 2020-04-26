@@ -9,7 +9,7 @@ export default function App() {
 
   const sortItems = newPreference => {
     setPreference(newPreference);
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -30,7 +30,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
   },

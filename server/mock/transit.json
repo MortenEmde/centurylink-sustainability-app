@@ -1,0 +1,26 @@
+{
+  "destination_addresses": [
+     "Stekkenbergweg 4, 1105 AJ Amsterdam, Netherlands"
+  ],
+  "origin_addresses": [
+     "Fred. Roeskestraat 115, 1076 EE Amsterdam, Netherlands"
+  ],
+  "rows": [
+     {
+        "elements": [
+           {
+              "distance": {
+                 "text": "11.1 km",
+                 "value": 11134
+              },
+              "duration": {
+                 "text": "34 mins",
+                 "value": 2066
+              },
+              "status": "OK"
+           }
+        ]
+     }
+  ],
+  "status": "OK"
+}
