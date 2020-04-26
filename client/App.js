@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from './components/JourneyPlanner';
 import PreferenceButton from './components/PreferenceButton';
 import ContainerTravelRecommendation from './components/ContainerTravelRecommendation'
 
 export default function App() {
+  const [preference, setPreference] = useState('star');
+
+  const sortItems = newPreference => {
+    setPreference(newPreference);
+  }
+
   return (
     <View style={styles.container}>
       <JourneyPlanner />
       <View style={styles.preferenceButtons}>
-        <PreferenceButton type="star" />
-        <PreferenceButton type="environment" />
-        <PreferenceButton type="health" />
-        <PreferenceButton type="time" />
+        <PreferenceButton type="star" sortItems={sortItems} />
+        <PreferenceButton type="environment" sortItems={sortItems} />
+        <PreferenceButton type="health" sortItems={sortItems}  />
+        <PreferenceButton type="time" sortItems={sortItems}  />
       </View>
       <View style={styles.listContainer}>
-        <ContainerTravelRecommendation />
+        <ContainerTravelRecommendation preference={preference} />
       </View>
     </View>
   );
