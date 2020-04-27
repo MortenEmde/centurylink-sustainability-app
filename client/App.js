@@ -1,42 +1,31 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import JourneyPlanner from './components/JourneyPlanner';
-import PreferenceButton from './components/PreferenceButton';
-import ContainerTravelRecommendation from './components/ContainerTravelRecommendation'
+import React from 'react';
+// import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './screens/Home';
+import Profile from './screens/Profile';
+import Scoreboard from './screens/Scoreboard';
+import Cyclingpref from './screens/cyclingpref';
+import Drivingpref from './screens/drivingpref';
+import Walkingpref from './screens/walkingpref';
+import Transitpref from './screens/transitpref';
 
-export default function App() {
-  const [preference, setPreference] = useState('star');
+const Stack = createStackNavigator();
 
-  const sortItems = newPreference => {
-    setPreference(newPreference);
-  };
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <JourneyPlanner />
-      <View style={styles.preferenceButtons}>
-        <PreferenceButton type="star" sortItems={sortItems} />
-        <PreferenceButton type="environment" sortItems={sortItems} />
-        <PreferenceButton type="health" sortItems={sortItems}  />
-        <PreferenceButton type="time" sortItems={sortItems}  />
-      </View>
-      <View style={styles.listContainer}>
-        <ContainerTravelRecommendation preference={preference} />
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Scoreboard" component={Scoreboard} />
+        <Stack.Screen name="cyclingpref" component={Cyclingpref} />
+        <Stack.Screen name="drivingpref" component={Drivingpref} />
+        <Stack.Screen name="walkingpref" component={Walkingpref} />
+        <Stack.Screen name="transitpref" component={Transitpref} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  preferenceButtons: {
-    flexDirection: 'row',
-    marginTop: 10,
-  },
-  // TBC styles
-  listContainer: {},
-});
+export default App;

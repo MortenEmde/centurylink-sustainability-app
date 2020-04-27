@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
-const ContainerTravelRecommendation = ({ preference }) => {
+const ContainerTravelRecommendation = ({ preference, navigation }) => {
   const [journeyData, setJourneyData] = useState([]);
 
   const fetchData = async () => {
@@ -48,9 +48,10 @@ const ContainerTravelRecommendation = ({ preference }) => {
         keyExtractor={(_, index) => index.toString()}
         extraData={preference}
         renderItem={(travelOption) => (
-        <CardTravelRecommendation
-          journeyInfo={travelOptionCheck(travelOption.item)}
-        />
+          <CardTravelRecommendation
+            journeyInfo={travelOptionCheck(travelOption.item)}
+            navigation={navigation}
+          />
         )}
       />
     </View>
@@ -59,8 +60,7 @@ const ContainerTravelRecommendation = ({ preference }) => {
 
 // TBC styles
 const styles = StyleSheet.create({
-  flatListContainer: {
-  },
+  flatListContainer: {},
 });
 
 export default ContainerTravelRecommendation;

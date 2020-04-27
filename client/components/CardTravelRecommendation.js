@@ -4,7 +4,7 @@ import { Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faWalking, faCarSide, faShuttleVan, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
 
-const CardTravelRecommendation = ({ journeyInfo }) => {
+const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
   const iconCheck = () => {
     if (journeyInfo.method === 'cycling') {
       return faBicycle;
@@ -19,7 +19,10 @@ const CardTravelRecommendation = ({ journeyInfo }) => {
 
   return (
     <View>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity
+        onPress={() => navigation.push(`${journeyInfo.method}pref`)}
+        // onPress={() => navigation.push('drivingpref')}
+      >
         <Card style={styles.card}>
           <View style={styles.mainContainer}>
             <View style={styles.subContainer}>
