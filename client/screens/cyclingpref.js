@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCarSide, faUsers, faUtensils, faToolbox, faChair, faDesktop, faBicycle } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faToolbox, faChair, faDesktop, faBicycle, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { CheckBox, Button } from 'react-native-elements'
 
 const Cyclingpref = () => {
@@ -17,7 +17,7 @@ const Cyclingpref = () => {
                 size={60}
               />
       <FontAwesomeIcon
-                icon={faUsers}
+                icon={faCreditCard}
                 size={60}
               />
       <CheckBox
