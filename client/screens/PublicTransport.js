@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faCreditCard, faUtensils, faToolbox, faChair, faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { CheckBox, Button } from 'react-native-elements';
 
-const Transitpref = ({ navigation }) => {
+const PublicTransport = ({ navigation }) => {
   return (
     <View>
       <View style={styles.employeeCount}>
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     margin: 20
   } });
 
-export default Transitpref;
+export default PublicTransport;

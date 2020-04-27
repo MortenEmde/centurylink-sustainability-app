@@ -1,8 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, onPress } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  onPress,
+} from 'react-native';
 import { Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBicycle, faWalking, faCarSide, faShuttleVan, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBicycle,
+  faWalking,
+  faCarSide,
+  faShuttleVan,
+  faLeaf,
+  faHeartbeat,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
 
 const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
   const iconCheck = () => {
@@ -17,10 +31,25 @@ const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
     }
   };
 
+  const screenCheck = (method) => {
+    switch (method) {
+      case 'cycling':
+        return 'Cycling';
+      case 'walking':
+        return 'Walking';
+      case 'driving':
+        return 'Driving';
+      case 'transit':
+        return 'Public Transport';
+      default:
+        return '';
+    }
+  };
+
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.push(`${journeyInfo.method}pref`)}
+        onPress={() => navigation.push(screenCheck(journeyInfo.method))}
       >
         <Card style={styles.card}>
           <View style={styles.mainContainer}>

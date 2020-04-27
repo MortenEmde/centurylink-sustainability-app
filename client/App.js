@@ -6,10 +6,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Scoreboard from './screens/Scoreboard';
-import Cyclingpref from './screens/cyclingpref';
-import Drivingpref from './screens/drivingpref';
-import Walkingpref from './screens/walkingpref';
-import Transitpref from './screens/transitpref';
+import Cycling from './screens/Cycling';
+import Driving from './screens/Driving';
+import Walking from './screens/Walking';
+import PublicTransport from './screens/PublicTransport';
 import Confirmation from './screens/Confirmation';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -20,10 +20,10 @@ const ScoreboardStack = createStackNavigator();
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
     <HomeStack.Screen name="Home" component={Home} />
-    <HomeStack.Screen name="cyclingpref" component={Cyclingpref} />
-    <HomeStack.Screen name="drivingpref" component={Drivingpref} />
-    <HomeStack.Screen name="walkingpref" component={Walkingpref} />
-    <HomeStack.Screen name="transitpref" component={Transitpref} />
+    <HomeStack.Screen name="Cycling" component={Cycling} />
+    <HomeStack.Screen name="Driving" component={Driving} />
+    <HomeStack.Screen name="Walking" component={Walking} />
+    <HomeStack.Screen name="Public Transport" component={PublicTransport} />
     <HomeStack.Screen name="Confirmation" component={Confirmation} />
   </HomeStack.Navigator>
 )

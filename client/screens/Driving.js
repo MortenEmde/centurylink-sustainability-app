@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCarSide, faUsers, faUtensils, faToolbox, faChair, faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { CheckBox, Button } from 'react-native-elements';
 
-const Drivingpref = ({ navigation }) => {
+const Driving = ({ navigation }) => {
   return (
     <View>
       <View style={styles.employeeCount}>
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     margin: 20
   } });
 
-export default Drivingpref;
+export default Driving;

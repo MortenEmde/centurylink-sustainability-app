@@ -1,31 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUtensils, faToolbox, faChair, faDesktop, faBicycle, faCreditCard } from '@fortawesome/free-solid-svg-icons';
-import { CheckBox, Button } from 'react-native-elements'
+import { faCarSide, faUsers, faUtensils, faToolbox, faChair, faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { CheckBox, Button } from 'react-native-elements';
 
-const Cyclingpref = ({ navigation }) => {
+const Walking = ({ navigation }) => {
   return (
     <View>
-    <View style={styles.employeeCount}>
+      <View style={styles.employeeCount}>
       <Text>Current employees in office: 24</Text>
       <Text>Current employees in your department: 6</Text>
     </View>
-    <View style={styles.option}>
-      <FontAwesomeIcon
-                icon={faBicycle}
-                size={60}
-              />
-      <FontAwesomeIcon
-                icon={faCreditCard}
-                size={60}
-              />
-      <CheckBox
-        // add state
-        // checked={this.state.checked}
-        // onPress={() => this.setState({checked: !this.state.checked})}
-      />
-      </View>
     <View style={styles.option}>
        <FontAwesomeIcon
               icon={faUtensils}
@@ -71,4 +56,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: 20
   } });
-export default Cyclingpref;
+
+export default Walking;
