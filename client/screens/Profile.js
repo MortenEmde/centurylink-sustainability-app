@@ -1,14 +1,22 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBicycle, faWalking, faCarSide, faShuttleVan, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBicycle,
+  faWalking,
+  faCarSide,
+  faShuttleVan,
+  faLeaf,
+  faHeartbeat,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.avatar}>
-        <Avatar 
+        <Avatar
           size={200}
           rounded
           source={{
@@ -19,42 +27,36 @@ const Profile = () => {
         />
       </View>
       <View style={styles.userInfo}>
-        <Text 
-          style={styles.name}>
-          Jane Doe
-        </Text>
-        <Text 
-          style={styles.department}>
-          Department: Technology
-        </Text>
+        <Text style={styles.name}>Jane Doe</Text>
+        <Text style={styles.department}>Department: Technology</Text>
       </View>
       <View style={styles.pointsRow}>
         <FontAwesomeIcon
           icon={faHeartbeat}
           style={styles.heartIcon}
-          size={30}
+          size={40}
         />
-        <Text style={styles.pointsText}>
-          {10}
-        </Text>
+        <Text style={styles.pointsText}>{12}</Text>
       </View>
       <View style={styles.pointsRow}>
-        <FontAwesomeIcon
-          icon={faLeaf}
-          style={styles.leafIcon}
-          size={30}
-        />
-        <Text style={styles.pointsText}>
-          {30}
-        </Text>
+        <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
+        <Text style={styles.pointsText}>{33}</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
+  container: {},
   avatar: {
+    marginTop: 60,
+    marginBottom: 30,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
   userInfo: {
     alignItems: 'center',
@@ -64,6 +66,9 @@ const styles = StyleSheet.create({
   },
   department: {
     fontSize: 20,
+    fontStyle: 'italic',
+    color: 'grey',
+    marginBottom: 10,
   },
   pointsRow: {
     flexDirection: 'row',
@@ -71,8 +76,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   pointsText: {
-    fontSize: 30,
-  }
-})
+    fontSize: 50,
+  },
+  leafIcon: {
+    color: 'green',
+    marginRight: 10,
+  },
+  heartIcon: {
+    color: 'red',
+    marginRight: 10,
+  },
+});
 
 export default Profile;
