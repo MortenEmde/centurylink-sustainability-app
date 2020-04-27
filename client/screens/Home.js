@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from '../components/JourneyPlanner';
 import PreferenceButton from '../components/PreferenceButton';
 import ContainerTravelRecommendation from '../components/ContainerTravelRecommendation'
