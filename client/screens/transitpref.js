@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBicycle, faCreditCard, faUtensils, faToolbox, faChair, faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { CheckBox, Button } from 'react-native-elements';
 
-const Transitpref = () => {
+const Transitpref = ({ navigation }) => {
   return (
     <View>
       <View style={styles.employeeCount}>
@@ -56,7 +56,7 @@ const Transitpref = () => {
           // onPress={() => this.setState({checked: !this.state.checked})}
         />
       </View>
-      <Button title="Start journey" />
+      <Button title="Start journey" onPress={() => navigation.push('Confirmation')}/>
     </View>
   );
 };

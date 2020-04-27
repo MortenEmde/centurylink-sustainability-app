@@ -10,6 +10,7 @@ import Cyclingpref from './screens/cyclingpref';
 import Drivingpref from './screens/drivingpref';
 import Walkingpref from './screens/walkingpref';
 import Transitpref from './screens/transitpref';
+import Confirmation from './screens/Confirmation';
 
 const Tab = createMaterialBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -23,6 +24,7 @@ const HomeStackScreen = () => (
     <HomeStack.Screen name="drivingpref" component={Drivingpref} />
     <HomeStack.Screen name="walkingpref" component={Walkingpref} />
     <HomeStack.Screen name="transitpref" component={Transitpref} />
+    <HomeStack.Screen name="Confirmation" component={Confirmation} />
   </HomeStack.Navigator>
 )
 

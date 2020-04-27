@@ -21,7 +21,6 @@ const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
     <View>
       <TouchableOpacity
         onPress={() => navigation.push(`${journeyInfo.method}pref`)}
-        // onPress={() => navigation.push('drivingpref')}
       >
         <Card style={styles.card}>
           <View style={styles.mainContainer}>
