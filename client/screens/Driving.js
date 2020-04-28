@@ -21,6 +21,8 @@ import {
   faUserFriends,
   faBicycle,
   faCreditCard,
+  faHeartbeat,
+  faLeaf
 } from '@fortawesome/free-solid-svg-icons';
 import { Button, Slider } from 'react-native-elements';
 
@@ -208,8 +210,27 @@ const Driving = ({ navigation }) => {
         <Text>Current employees in your department: 6</Text>
       </View>
       <View style={styles.option}>
-        <FontAwesomeIcon icon={faCarSide} size={60} />
-        <FontAwesomeIcon icon={faUsers} size={60} />
+        <View style={styles.iconSet}>
+          <FontAwesomeIcon icon={faCarSide} size={60} />
+          <FontAwesomeIcon icon={faUsers} size={60} />
+        </View>
+        <View style={styles.mainPoints}>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+              icon={faHeartbeat}
+              style={styles.heartIcon}
+              size={20}
+            />
+            <Text style={styles.pointsText}>+{5}</Text>
+          </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+            icon={faLeaf} 
+            style={styles.leafIcon} 
+            size={20} />
+            <Text style={styles.pointsText}>+{11}</Text>
+          </View>
+        </View>
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Carpool"
@@ -219,8 +240,27 @@ const Driving = ({ navigation }) => {
         />
       </View>
       <View style={styles.option}>
-        <FontAwesomeIcon icon={faUtensils} size={60} />
-        <FontAwesomeIcon icon={faToolbox} size={60} />
+        <View style={styles.iconSet}>
+          <FontAwesomeIcon icon={faUtensils} size={60} />
+          <FontAwesomeIcon icon={faToolbox} size={60} />
+        </View>
+        <View style={styles.mainPoints}>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+              icon={faHeartbeat}
+              style={styles.heartIcon}
+              size={20}
+            />
+            <Text style={styles.pointsText}>+{5}</Text>
+          </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+            icon={faLeaf} 
+            style={styles.leafIcon} 
+            size={20} />
+            <Text style={styles.pointsText}>+{11}</Text>
+          </View>
+        </View>
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Lunch options"
@@ -230,8 +270,27 @@ const Driving = ({ navigation }) => {
         />
       </View>
       <View style={styles.option}>
-        <FontAwesomeIcon icon={faDesktop} size={60} />
-        <FontAwesomeIcon icon={faChair} size={60} />
+        <View style={styles.iconSet}>
+          <FontAwesomeIcon icon={faDesktop} size={60} />
+          <FontAwesomeIcon icon={faChair} size={60} />
+        </View>
+        <View style={styles.mainPoints}>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+              icon={faHeartbeat}
+              style={styles.heartIcon}
+              size={20}
+            />
+            <Text style={styles.pointsText}>+{5}</Text>
+          </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+            icon={faLeaf} 
+            style={styles.leafIcon} 
+            size={20} />
+            <Text style={styles.pointsText}>+{11}</Text>
+          </View>
+        </View>
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Select Desk"
@@ -242,8 +301,27 @@ const Driving = ({ navigation }) => {
       </View>
 
       <View style={styles.option}>
-        <FontAwesomeIcon icon={faBicycle} size={60} />
-        <FontAwesomeIcon icon={faCreditCard} size={60} />
+        <View style={styles.iconSet}>
+          <FontAwesomeIcon icon={faBicycle} size={60} />
+          <FontAwesomeIcon icon={faCreditCard} size={60} />
+        </View>
+        <View style={styles.mainPoints}>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+              icon={faHeartbeat}
+              style={styles.heartIcon}
+              size={20}
+            />
+            <Text style={styles.pointsText}>+{5}</Text>
+          </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+            icon={faLeaf} 
+            style={styles.leafIcon} 
+            size={20} />
+            <Text style={styles.pointsText}>+{11}</Text>
+          </View>
+        </View>
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Rent a Bike"
@@ -263,6 +341,33 @@ const Driving = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  mainPoints: {},
+  pointsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 3,
+  },
+  pointsText: {
+    fontSize: 50,
+    marginTop: 10,
+  },
+  leafIcon: {
+    marginLeft: 0,
+    color: 'green',
+    marginRight: 5,
+  },
+  heartIcon: {
+    color: 'red',
+    marginRight: 5,
+  },
+  pointsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  pointsText: {
+    fontSize: 20,
+  },
   employeeCount: {
     alignItems: 'center',
     marginTop: 15,
@@ -270,6 +375,11 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     margin: 20,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  iconSet: {
+    flexDirection: 'row',
   },
   centeredView: {
     flex: 1,
