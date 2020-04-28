@@ -53,6 +53,7 @@ const Cycling = ({ navigation }) => {
                 size={60}
               />
       <Button
+      buttonStyle={{ backgroundColor: '#3b8348' }}
         title="Rent a Bike"
         onPress={() => {
           setModalBikeVisible(!modalBikeVisible);
@@ -69,6 +70,7 @@ const Cycling = ({ navigation }) => {
             size={60}
             />
       <Button
+      buttonStyle={{ backgroundColor: '#3b8348' }}
         // add state
         // checked={this.state.checked}
         // onPress={() => this.setState({checked: !this.state.checked})}
@@ -84,12 +86,13 @@ const Cycling = ({ navigation }) => {
             size={60}
             />
       <Button
+      buttonStyle={{ backgroundColor: '#3b8348' }}
         // add state
         // checked={this.state.checked}
         // onPress={() => this.setState({checked: !this.state.checked})}
       />
     </View>
-    <Button title="Start journey" onPress={() => navigation.push('Confirmation')}/>
+    <Button buttonStyle={{ backgroundColor: '#3b8348' }} title="Start journey" onPress={() => navigation.push('Confirmation')}/>
     </View>
   );
 };

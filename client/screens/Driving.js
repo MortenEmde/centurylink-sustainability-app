@@ -20,10 +20,9 @@ import {
   faCar,
   faUserFriends,
   faBicycle,
-  faCreditCard
+  faCreditCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { Button, Slider } from 'react-native-elements';
-
 
 const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
@@ -38,11 +37,16 @@ const Driving = ({ navigation }) => {
   const [lunchForColleagues, setLunchForColleagues] = useState(0);
   const [isBringingPlastic, setIsBringingPlastic] = useState(false);
 
-  const toggleCarpoolSwitch = () => setIsCarpool((previousState) => !previousState);
-  const togglePassengerSwitch = () => setIsPassenger((previousState) => !previousState);
-  const toggleLunchSwitch = () => setIsBringingLunch((previousState) => !previousState);
-  const toggleCupSwitch = () => setIsBringingCup((previousState) => !previousState);
-  const togglePlasticSwitch = () => setIsBringingPlastic((previousState) => !previousState);
+  const toggleCarpoolSwitch = () =>
+    setIsCarpool((previousState) => !previousState);
+  const togglePassengerSwitch = () =>
+    setIsPassenger((previousState) => !previousState);
+  const toggleLunchSwitch = () =>
+    setIsBringingLunch((previousState) => !previousState);
+  const toggleCupSwitch = () =>
+    setIsBringingCup((previousState) => !previousState);
+  const togglePlasticSwitch = () =>
+    setIsBringingPlastic((previousState) => !previousState);
 
   return (
     <View>
@@ -177,7 +181,9 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>10 Bikes are still available at your nearest Station.</Text>
+            <Text style={styles.modalText}>
+              10 Bikes are still available at your nearest Station.
+            </Text>
             <Text style={styles.modalText}>Reserve one below. </Text>
             <View>
               <Image
@@ -205,6 +211,7 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faCarSide} size={60} />
         <FontAwesomeIcon icon={faUsers} size={60} />
         <Button
+          buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Carpool"
           onPress={() => {
             setModalCarpoolVisible(!modalCarpoolVisible);
@@ -215,6 +222,7 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faUtensils} size={60} />
         <FontAwesomeIcon icon={faToolbox} size={60} />
         <Button
+          buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Lunch options"
           onPress={() => {
             setModalLunchVisible(true);
@@ -225,6 +233,7 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faDesktop} size={60} />
         <FontAwesomeIcon icon={faChair} size={60} />
         <Button
+          buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Select Desk"
           onPress={() => {
             setModalDeskVisible(true);
@@ -236,6 +245,7 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faBicycle} size={60} />
         <FontAwesomeIcon icon={faCreditCard} size={60} />
         <Button
+          buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Rent a Bike"
           onPress={() => {
             setModalBikeRentalVisible(true);
@@ -244,6 +254,7 @@ const Driving = ({ navigation }) => {
       </View>
 
       <Button
+        buttonStyle={{ backgroundColor: '#3b8348' }}
         title="Start journey"
         onPress={() => navigation.push('Confirmation')}
       />
@@ -309,7 +320,7 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 20,
   },
 });
 

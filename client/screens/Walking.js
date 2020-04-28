@@ -41,7 +41,7 @@ const Walking = ({ navigation }) => {
         // onPress={() => this.setState({checked: !this.state.checked})}
       />
     </View>
-    <Button title="Start journey" onPress={() => navigation.push('Confirmation')}/>
+    <Button buttonStyle={{ backgroundColor: '#3b8348' }} title="Start journey" onPress={() => navigation.push('Confirmation')}/>
     </View>
   );
 };
