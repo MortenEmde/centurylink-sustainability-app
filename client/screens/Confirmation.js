@@ -1,14 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faUtensils, faToolbox, faChair, faDesktop, faBicycle, faCreditCard, faSmileBeam } from '@fortawesome/free-solid-svg-icons';
 
 const Confirmation = () => {
   return (
     <View>
-      <Text>Hello Confirmation</Text>
+       <FontAwesomeIcon
+                icon={faSmileBeam}
+                size={60}
+              />
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+
+})
+
 export default Confirmation;
 
-const styles = StyleSheet.create({})
