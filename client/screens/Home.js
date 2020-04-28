@@ -13,7 +13,9 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.journeyPlanner}><JourneyPlanner /></View>
+      <View style={styles.journeyPlanner}>
+        <JourneyPlanner />
+      </View>
       <View style={styles.preferenceButtons}>
         <PreferenceButton type="star" sortItems={sortItems} />
         <PreferenceButton type="health" sortItems={sortItems} />

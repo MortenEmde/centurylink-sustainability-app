@@ -48,7 +48,7 @@ const App = () => {
       <Tab.Navigator
         initialRouteName="Home"
         activeColor="#ffffff"
-        barStyle={{ backgroundColor: '#3b8348' }}
+        barStyle={{ backgroundColor: '#3b8348', paddingTop:10 }}
       >
         <Tab.Screen
           options={{

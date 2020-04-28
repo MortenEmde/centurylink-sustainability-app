@@ -2,15 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { Card, ListItem, Divider } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {
-  faBicycle,
-  faWalking,
-  faCarSide,
-  faShuttleVan,
-  faLeaf,
-  faHeartbeat,
-  faClock,
-} from '@fortawesome/free-solid-svg-icons';
+import { faLeaf, faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
 const department = [
   {
@@ -77,9 +69,16 @@ const Scoreboard = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Card containerStyle={{ padding: 0 }} title="Department Top 5" titleStyle={
-          {backgroundColor: 'black', color: 'white', margin: 0, padding: 0,}
-        }>
+        <Card
+          containerStyle={{ padding: 0 }}
+          title="Department Top 5"
+          titleStyle={{
+            backgroundColor: 'black',
+            color: 'white',
+            margin: 0,
+            padding: 0,
+          }}
+        >
           {department.map((u, i) => {
             return (
               <ListItem
@@ -90,27 +89,34 @@ const Scoreboard = () => {
                 bottomDivider
                 rightTitle={
                   <View style={styles.pointsContainer}>
-                <FontAwesomeIcon
-                  icon={faHeartbeat}
-                  style={styles.heartIcon}
-                  size={30}
-                />
-                <Text style={styles.pointsText}>{u.hearts}</Text>
-                <FontAwesomeIcon
-                icon={faLeaf}
-                style={styles.leafIcon}
-                size={30}
-              />
-              <Text style={styles.pointsText}>{u.leaves}</Text>
-              </View>
-              
-              }
+                    <FontAwesomeIcon
+                      icon={faHeartbeat}
+                      style={styles.heartIcon}
+                      size={30}
+                    />
+                    <Text style={styles.pointsText}>{u.hearts}</Text>
+                    <FontAwesomeIcon
+                      icon={faLeaf}
+                      style={styles.leafIcon}
+                      size={30}
+                    />
+                    <Text style={styles.pointsText}>{u.leaves}</Text>
+                  </View>
+                }
               />
             );
           })}
         </Card>
-        <Card containerStyle={{ padding: 0 }} title="Office Top 3" titleStyle={
-          {backgroundColor: 'black', color: 'white', margin: 0, padding: 0,}}>
+        <Card
+          containerStyle={{ padding: 0 }}
+          title="Office Top 3"
+          titleStyle={{
+            backgroundColor: 'black',
+            color: 'white',
+            margin: 0,
+            padding: 0,
+          }}
+        >
           {office.map((u, i) => {
             return (
               <ListItem
@@ -119,21 +125,22 @@ const Scoreboard = () => {
                 title={u.name}
                 leftAvatar={{ source: { uri: u.avatar } }}
                 bottomDivider
-                rightTitle={<View style={styles.pointsContainer}>
-                <FontAwesomeIcon
-                  icon={faHeartbeat}
-                  style={styles.heartIcon}
-                  size={30}
-                />
-                <Text style={styles.pointsText}>{u.hearts}</Text>
-                <FontAwesomeIcon
-                icon={faLeaf}
-                style={styles.leafIcon}
-                size={30}
-              />
-              <Text style={styles.pointsText}>{u.leaves}</Text>
-              </View>
-              }
+                rightTitle={
+                  <View style={styles.pointsContainer}>
+                    <FontAwesomeIcon
+                      icon={faHeartbeat}
+                      style={styles.heartIcon}
+                      size={30}
+                    />
+                    <Text style={styles.pointsText}>{u.hearts}</Text>
+                    <FontAwesomeIcon
+                      icon={faLeaf}
+                      style={styles.leafIcon}
+                      size={30}
+                    />
+                    <Text style={styles.pointsText}>{u.leaves}</Text>
+                  </View>
+                }
               />
             );
           })}
@@ -163,7 +170,7 @@ const styles = StyleSheet.create({
   },
   pointsText: {
     fontSize: 20,
-  }
+  },
 });
 
 export default Scoreboard;
