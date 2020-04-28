@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   leafIcon: {
-    color: 'green',
+    color: '#3b8348',
   },
   clockIcon: {
     color: 'black',

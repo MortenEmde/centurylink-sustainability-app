@@ -4,11 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {
-  faHome,
-  faUser,
-  faStar,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faStar } from '@fortawesome/free-solid-svg-icons';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Scoreboard from './screens/Scoreboard';
@@ -32,24 +28,28 @@ const HomeStackScreen = () => (
     <HomeStack.Screen name="Public Transport" component={PublicTransport} />
     <HomeStack.Screen name="Confirmation" component={Confirmation} />
   </HomeStack.Navigator>
-)
+);
 
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen name="Profile" component={Profile} />
   </ProfileStack.Navigator>
-)
+);
 
 const ScoreboardStackScreen = () => (
   <ScoreboardStack.Navigator>
     <ScoreboardStack.Screen name="Scoreboard" component={Scoreboard} />
   </ScoreboardStack.Navigator>
-)
+);
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home" activeColor="#ffffff">
+      <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="#ffffff"
+        barStyle={{ backgroundColor: '#3b8348' }}
+      >
         <Tab.Screen
           options={{
             tabBarLabel: '',
@@ -63,7 +63,9 @@ const App = () => {
         <Tab.Screen
           options={{
             tabBarLabel: '',
-            tabBarIcon: () => <FontAwesomeIcon icon={faUser} size={40} />,
+            tabBarIcon: ({ color }) => (
+              <FontAwesomeIcon icon={faUser} color={color} size={40} />
+            ),
           }}
           name="Profile"
           component={ProfileStackScreen}
@@ -71,7 +73,9 @@ const App = () => {
         <Tab.Screen
           options={{
             tabBarLabel: '',
-            tabBarIcon: () => <FontAwesomeIcon icon={faStar} size={40} />,
+            tabBarIcon: ({ color }) => (
+              <FontAwesomeIcon icon={faStar} color={color} size={40} />
+            ),
           }}
           name="Scoreboard"
           component={ScoreboardStackScreen}

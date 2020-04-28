@@ -7,9 +7,9 @@ import { faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-sv
 const PreferenceButton = ({ type, sortItems }) => {
   const icon = {
     star: { name: faStar, color: 'yellow' },
-    environment: { name: faLeaf, color: 'green' },
+    environment: { name: faLeaf, color: 'white' },
     health: { name: faHeartbeat, color: 'red' },
-    time: { name: faClock, color: 'white' },
+    time: { name: faClock, color: 'black' },
   };
 
   return (
@@ -31,10 +31,15 @@ const PreferenceButton = ({ type, sortItems }) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'darkslateblue',
+    backgroundColor: '#3b8348',
     width: 70,
     height: 70,
     margin: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
 });
 
