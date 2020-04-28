@@ -67,13 +67,13 @@ const Driving = ({ navigation }) => {
               <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
             </View>
             <View style={styles.driverChoice}>
-              <FontAwesomeIcon icon={faCar} size={60} marginRight={20}/>
+              <FontAwesomeIcon icon={faCar} size={60} marginRight={20} />
               <Switch
                 disabled={!isCarpool}
                 onChange={togglePassengerSwitch}
                 value={isPassenger}
               ></Switch>
-              <FontAwesomeIcon icon={faUserFriends} size={60}  marginLeft={20}/>
+              <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={20} />
             </View>
             <View style={styles.map}>
               <Image
@@ -92,6 +92,7 @@ const Driving = ({ navigation }) => {
           </View>
         </View>
       </Modal>
+
       <Modal
         animationType="fade"
         transparent={true}
@@ -102,20 +103,33 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={[styles.modalView, styles.modalLunchView]}>
-            <View style={styles.lunchPref}>
-              <Text style={styles.modalText}>Bringing own lunch?</Text>
-              <Switch
-                onChange={toggleLunchSwitch}
-                value={isBringingLunch}
-              ></Switch>
-            </View>
-            <View style={styles.lunchPref}>
-              <Text style={styles.modalText}>Bringing own cup?</Text>
-              <Switch onChange={toggleCupSwitch} value={isBringingCup}></Switch>
-            </View>
+
+<View style={styles.lunchChoices}>
+
+                    <View style={styles.lunchPref}>
+                      <Text style={styles.modalText}>Bringing own lunch?</Text>
+                      <Switch
+                        onChange={toggleLunchSwitch}
+                        value={isBringingLunch}
+                      ></Switch>
+                    </View>
+                  <View style={styles.lunchPref}>
+                    <Text style={styles.modalText}>Bringing own cup?</Text>
+                    <Switch onChange={toggleCupSwitch} value={isBringingCup}></Switch>
+                  </View>
+                    <View style={styles.lunchPref}>
+                      <Text style={styles.modalText}>No single use plastics?</Text>
+                      <Switch
+                        onChange={togglePlasticSwitch}
+                        value={isBringingPlastic}
+                      ></Switch>
+                    </View>
+     </View>      
+
+
             <View>
               <Text style={styles.modalText}>
-                Bringing lunch for collegues?
+                Bringing lunch for colleagues?
               </Text>
               <Slider
                 value={lunchForColleagues}
@@ -126,13 +140,7 @@ const Driving = ({ navigation }) => {
               />
               <Text>{lunchForColleagues}</Text>
             </View>
-            <View style={styles.lunchPref}>
-              <Text style={styles.modalText}>No single use plastics?</Text>
-              <Switch
-                onChange={togglePlasticSwitch}
-                value={isBringingPlastic}
-              ></Switch>
-            </View>
+<View style={styles.doneButtonLunch}>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
               onPress={() => {
@@ -141,6 +149,7 @@ const Driving = ({ navigation }) => {
             >
               <Text style={styles.textStyle}>Done</Text>
             </TouchableHighlight>
+            </View>
           </View>
         </View>
       </Modal>
@@ -224,10 +233,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{5}</Text>
           </View>
           <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-            icon={faLeaf} 
-            style={styles.leafIcon} 
-            size={20} />
+            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
@@ -254,10 +260,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{5}</Text>
           </View>
           <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-            icon={faLeaf} 
-            style={styles.leafIcon} 
-            size={20} />
+            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
@@ -284,10 +287,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{5}</Text>
           </View>
           <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-            icon={faLeaf} 
-            style={styles.leafIcon} 
-            size={20} />
+            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
@@ -315,10 +315,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{5}</Text>
           </View>
           <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-            icon={faLeaf} 
-            style={styles.leafIcon} 
-            size={20} />
+            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
@@ -419,6 +416,9 @@ const styles = StyleSheet.create({
   },
   lunchPref: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingBottom: 5,
   },
   openButton: {
     backgroundColor: '#F194FF',
@@ -436,6 +436,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
+  doneButtonLunch: {
+    alignSelf: "center",
+  }
 });
 
 export default Driving;
