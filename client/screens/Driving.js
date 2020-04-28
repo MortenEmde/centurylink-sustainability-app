@@ -7,6 +7,7 @@ import {
   Modal,
   TouchableHighlight,
   Switch,
+  Image,
 } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
@@ -16,14 +17,24 @@ import {
   faToolbox,
   faChair,
   faDesktop,
+  faCar,
+  faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
 import { CheckBox, Button } from 'react-native-elements';
 
+
 const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
+  const [modalLunchVisible, setModalLunchVisible] = useState(false);
   const [modalDeskVisible, setModalDeskVisible] = useState(false);
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
+  const [isCarpool, setIsCarpool] = useState(false);
+  const [isPassenger, setIsPassenger] = useState(false);
+  const [isBringingLunch, setIsBringingLunch] = useState(false);
+
+  const toggleCarpoolSwitch = () => setIsCarpool((previousState) => !previousState);
+  const togglePassengerSwitch = () => setIsPassenger((previousState) => !previousState);
+
   return (
     <View>
       <Modal
@@ -36,19 +47,64 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello Car!</Text>
-            <Switch onChange={toggleSwitch} value={isEnabled}></Switch>
+            <View style={styles.carpoolPref}>
+              <Text style={styles.modalText}>Do you want to Carpool?</Text>
+              <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
+            </View>
+            <View style={styles.driverChoice}>
+              <FontAwesomeIcon icon={faCar} size={60} />
+              <Switch disabled={!isCarpool} onChange={togglePassengerSwitch} value={isPassenger}></Switch>
+              <FontAwesomeIcon icon={faUserFriends} size={60} />
+            </View>
+            <View>
+              <Image source={require('../assets/map.png')} style={{width: 300, height: 300}}/>
+            </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
               onPress={() => {
                 setModalCarpoolVisible(!modalCarpoolVisible);
               }}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Done</Text>
             </TouchableHighlight>
           </View>
         </View>
       </Modal>
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalLunchVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <View style={styles.lunchPref}>
+              <Text style={styles.modalText}>Do you want to bring lunch?</Text>
+              <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
+            </View>
+            <View style={styles.driverChoice}>
+              <FontAwesomeIcon icon={faCar} size={60} />
+              <Switch disabled={!isCarpool} onChange={togglePassengerSwitch} value={isPassenger}></Switch>
+              <FontAwesomeIcon icon={faUserFriends} size={60} />
+            </View>
+            <View>
+              <Image source={require('../assets/map.png')} style={{width: 300, height: 300}}/>
+            </View>
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              onPress={() => {
+                setModalCarpoolVisible(!modalCarpoolVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Done</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+      </Modal>
+
       <Modal
         animationType="fade"
         transparent={true}
@@ -59,15 +115,17 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello Desk!</Text>
-
+            <Text style={styles.modalText}>Select your desk</Text>
+            <View>
+              <Image source={require('../assets/office.png')} style={{width: 300, height: 300}}/>
+            </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
               onPress={() => {
                 setModalDeskVisible(!modalDeskVisible);
               }}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Done</Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -92,17 +150,21 @@ const Driving = ({ navigation }) => {
       <View style={styles.option}>
         <FontAwesomeIcon icon={faUtensils} size={60} />
         <FontAwesomeIcon icon={faToolbox} size={60} />
-        <Switch
-        // add state
-        // checked={this.state.checked}
-        // onPress={() => this.setState({checked: !this.state.checked})}
+        <Button
+          title="Lunch options"
+          // add state
+          // checked={this.state.checked}
+          // onPress={() => this.setState({checked: !this.state.checked})}
+          onPress={() => {
+            setModalLunchVisible(true);
+          }}
         />
       </View>
       <View style={styles.option}>
         <FontAwesomeIcon icon={faDesktop} size={60} />
         <FontAwesomeIcon icon={faChair} size={60} />
         <Button
-          title="Select Chair"
+          title="Select Desk"
           // add state
           // checked={this.state.checked}
           // onPress={() => this.setState({checked: !this.state.checked})}
@@ -149,6 +211,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  carpoolPref: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  driverChoice: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   openButton: {
     backgroundColor: '#F194FF',
     borderRadius: 20,
@@ -163,6 +233,7 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+    fontSize: 20
   },
 });
 
