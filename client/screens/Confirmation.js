@@ -7,9 +7,10 @@ const Confirmation = () => {
   return (
     <View>
        <FontAwesomeIcon
-                icon={faSmileBeam}
-                size={60}
-              />
+        icon={faSmileBeam}
+        size={60}
+      />
+      <Text>Have a nice Journey!</Text>
     </View>
   );
 };

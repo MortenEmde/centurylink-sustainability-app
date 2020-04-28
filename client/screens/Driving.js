@@ -20,7 +20,7 @@ import {
   faCar,
   faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
-import { CheckBox, Button } from 'react-native-elements';
+import { Button, Slider } from 'react-native-elements';
 
 
 const Driving = ({ navigation }) => {
@@ -31,9 +31,15 @@ const Driving = ({ navigation }) => {
   const [isCarpool, setIsCarpool] = useState(false);
   const [isPassenger, setIsPassenger] = useState(false);
   const [isBringingLunch, setIsBringingLunch] = useState(false);
+  const [isBringingCup, setIsBringingCup] = useState(false);
+  const [lunchForColleagues, setLunchForColleagues] = useState(0);
+  const [isBringingPlastic, setIsBringingPlastic] = useState(false);
 
   const toggleCarpoolSwitch = () => setIsCarpool((previousState) => !previousState);
   const togglePassengerSwitch = () => setIsPassenger((previousState) => !previousState);
+  const toggleLunchSwitch = () => setIsBringingLunch((previousState) => !previousState);
+  const toggleCupSwitch = () => setIsBringingCup((previousState) => !previousState);
+  const togglePlasticSwitch = () => setIsBringingPlastic((previousState) => !previousState);
 
   return (
     <View>
@@ -70,7 +76,6 @@ const Driving = ({ navigation }) => {
           </View>
         </View>
       </Modal>
-
       <Modal
         animationType="fade"
         transparent={true}
@@ -80,23 +85,34 @@ const Driving = ({ navigation }) => {
         }}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView, styles.modalLunchView]}>
             <View style={styles.lunchPref}>
-              <Text style={styles.modalText}>Do you want to bring lunch?</Text>
-              <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
+              <Text style={styles.modalText}>Bringing own lunch?</Text>
+              <Switch onChange={toggleLunchSwitch} value={isBringingLunch}></Switch>
             </View>
-            <View style={styles.driverChoice}>
-              <FontAwesomeIcon icon={faCar} size={60} />
-              <Switch disabled={!isCarpool} onChange={togglePassengerSwitch} value={isPassenger}></Switch>
-              <FontAwesomeIcon icon={faUserFriends} size={60} />
+            <View style={styles.lunchPref}>
+              <Text style={styles.modalText}>Bringing own cup?</Text>
+              <Switch onChange={toggleCupSwitch} value={isBringingCup}></Switch>
             </View>
-            <View>
-              <Image source={require('../assets/map.png')} style={{width: 300, height: 300}}/>
+            <View >
+            <Text style={styles.modalText}>Bringing lunch for collegues?</Text>
+              <Slider
+                value={lunchForColleagues}
+                minimumValue={0}
+                maximumValue={10}
+                step={1}
+                onValueChange={value => setLunchForColleagues( value )}
+              />
+              <Text>{lunchForColleagues}</Text>
+            </View>
+            <View style={styles.lunchPref}>
+              <Text style={styles.modalText}>No single use plastics?</Text>
+              <Switch onChange={togglePlasticSwitch} value={isBringingPlastic}></Switch>
             </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
               onPress={() => {
-                setModalCarpoolVisible(!modalCarpoolVisible);
+                setModalLunchVisible(!modalLunchVisible);
               }}
             >
               <Text style={styles.textStyle}>Done</Text>
@@ -104,7 +120,6 @@ const Driving = ({ navigation }) => {
           </View>
         </View>
       </Modal>
-
       <Modal
         animationType="fade"
         transparent={true}
@@ -138,9 +153,6 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faCarSide} size={60} />
         <FontAwesomeIcon icon={faUsers} size={60} />
         <Button
-          // add state
-          // checked={this.state.checked}
-          // onPress={() => this.setState({checked: !this.state.checked})}
           title="Carpool"
           onPress={() => {
             setModalCarpoolVisible(!modalCarpoolVisible);
@@ -152,9 +164,6 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faToolbox} size={60} />
         <Button
           title="Lunch options"
-          // add state
-          // checked={this.state.checked}
-          // onPress={() => this.setState({checked: !this.state.checked})}
           onPress={() => {
             setModalLunchVisible(true);
           }}
@@ -165,9 +174,6 @@ const Driving = ({ navigation }) => {
         <FontAwesomeIcon icon={faChair} size={60} />
         <Button
           title="Select Desk"
-          // add state
-          // checked={this.state.checked}
-          // onPress={() => this.setState({checked: !this.state.checked})}
           onPress={() => {
             setModalDeskVisible(true);
           }}
@@ -211,6 +217,9 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  modalLunchView: {
+    alignItems: 'flex-start',
+  },
   carpoolPref: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -218,6 +227,9 @@ const styles = StyleSheet.create({
   driverChoice: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  lunchPref: {
+    flexDirection: 'row',
   },
   openButton: {
     backgroundColor: '#F194FF',
