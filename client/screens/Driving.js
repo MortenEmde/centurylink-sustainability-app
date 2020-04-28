@@ -67,22 +67,22 @@ const Driving = ({ navigation }) => {
               <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
             </View>
             <View style={styles.driverChoice}>
-              <FontAwesomeIcon icon={faCar} size={60} />
+              <FontAwesomeIcon icon={faCar} size={60} marginRight={20}/>
               <Switch
                 disabled={!isCarpool}
                 onChange={togglePassengerSwitch}
                 value={isPassenger}
               ></Switch>
-              <FontAwesomeIcon icon={faUserFriends} size={60} />
+              <FontAwesomeIcon icon={faUserFriends} size={60}  marginLeft={20}/>
             </View>
-            <View>
+            <View style={styles.map}>
               <Image
                 source={require('../assets/map.png')}
                 style={{ width: 300, height: 300 }}
               />
             </View>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
               onPress={() => {
                 setModalCarpoolVisible(!modalCarpoolVisible);
               }}
@@ -134,7 +134,7 @@ const Driving = ({ navigation }) => {
               ></Switch>
             </View>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
               onPress={() => {
                 setModalLunchVisible(!modalLunchVisible);
               }}
@@ -162,7 +162,7 @@ const Driving = ({ navigation }) => {
               />
             </View>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
               onPress={() => {
                 setModalDeskVisible(!modalDeskVisible);
               }}
@@ -194,7 +194,7 @@ const Driving = ({ navigation }) => {
               />
             </View>
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
               onPress={() => {
                 setModalBikeRentalVisible(!modalBikeRentalVisible);
               }}
@@ -372,6 +372,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 15,
   },
+  map: {
+    marginBottom: 20,
+  },
   option: {
     flexDirection: 'row',
     margin: 20,
@@ -412,6 +415,7 @@ const styles = StyleSheet.create({
   driverChoice: {
     flexDirection: 'row',
     alignItems: 'center',
+    margin: 15,
   },
   lunchPref: {
     flexDirection: 'row',
@@ -428,7 +432,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    margin: 15,
     textAlign: 'center',
     fontSize: 20,
   },
