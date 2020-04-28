@@ -54,7 +54,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesomeIcon icon={faHome} color={color} size={40} />
+              <FontAwesomeIcon icon={faHome} color={color} size={35} />
             ),
           }}
           name="Home"
@@ -64,7 +64,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesomeIcon icon={faUser} color={color} size={40} />
+              <FontAwesomeIcon icon={faUser} color={color} size={35} />
             ),
           }}
           name="Profile"
@@ -74,7 +74,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesomeIcon icon={faStar} color={color} size={40} />
+              <FontAwesomeIcon icon={faStar} color={color} size={35} />
             ),
           }}
           name="Scoreboard"

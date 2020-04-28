@@ -13,11 +13,11 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <JourneyPlanner />
+      <View style={styles.journeyPlanner}><JourneyPlanner /></View>
       <View style={styles.preferenceButtons}>
         <PreferenceButton type="star" sortItems={sortItems} />
-        <PreferenceButton type="environment" sortItems={sortItems} />
         <PreferenceButton type="health" sortItems={sortItems} />
+        <PreferenceButton type="environment" sortItems={sortItems} />
         <PreferenceButton type="time" sortItems={sortItems} />
       </View>
       <View style={styles.listContainer}>
@@ -32,12 +32,17 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    height: '100%',
+    backgroundColor: '#b6d688',
     alignItems: 'center',
   },
   preferenceButtons: {
     flexDirection: 'row',
     marginTop: 10,
+  },
+  journeyPlanner: {
+    marginTop: 10,
+    backgroundColor: '#fff',
   },
   // TBC styles
   listContainer: {},

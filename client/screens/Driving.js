@@ -18,7 +18,9 @@ import {
   faChair,
   faDesktop,
   faCar,
-  faUserFriends
+  faUserFriends,
+  faBicycle,
+  faCreditCard
 } from '@fortawesome/free-solid-svg-icons';
 import { Button, Slider } from 'react-native-elements';
 
@@ -27,6 +29,7 @@ const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
   const [modalLunchVisible, setModalLunchVisible] = useState(false);
   const [modalDeskVisible, setModalDeskVisible] = useState(false);
+  const [modalBikeRentalVisible, setModalBikeRentalVisible] = useState(false);
 
   const [isCarpool, setIsCarpool] = useState(false);
   const [isPassenger, setIsPassenger] = useState(false);
@@ -59,11 +62,18 @@ const Driving = ({ navigation }) => {
             </View>
             <View style={styles.driverChoice}>
               <FontAwesomeIcon icon={faCar} size={60} />
-              <Switch disabled={!isCarpool} onChange={togglePassengerSwitch} value={isPassenger}></Switch>
+              <Switch
+                disabled={!isCarpool}
+                onChange={togglePassengerSwitch}
+                value={isPassenger}
+              ></Switch>
               <FontAwesomeIcon icon={faUserFriends} size={60} />
             </View>
             <View>
-              <Image source={require('../assets/map.png')} style={{width: 300, height: 300}}/>
+              <Image
+                source={require('../assets/map.png')}
+                style={{ width: 300, height: 300 }}
+              />
             </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
@@ -88,26 +98,34 @@ const Driving = ({ navigation }) => {
           <View style={[styles.modalView, styles.modalLunchView]}>
             <View style={styles.lunchPref}>
               <Text style={styles.modalText}>Bringing own lunch?</Text>
-              <Switch onChange={toggleLunchSwitch} value={isBringingLunch}></Switch>
+              <Switch
+                onChange={toggleLunchSwitch}
+                value={isBringingLunch}
+              ></Switch>
             </View>
             <View style={styles.lunchPref}>
               <Text style={styles.modalText}>Bringing own cup?</Text>
               <Switch onChange={toggleCupSwitch} value={isBringingCup}></Switch>
             </View>
-            <View >
-            <Text style={styles.modalText}>Bringing lunch for collegues?</Text>
+            <View>
+              <Text style={styles.modalText}>
+                Bringing lunch for collegues?
+              </Text>
               <Slider
                 value={lunchForColleagues}
                 minimumValue={0}
                 maximumValue={10}
                 step={1}
-                onValueChange={value => setLunchForColleagues( value )}
+                onValueChange={(value) => setLunchForColleagues(value)}
               />
               <Text>{lunchForColleagues}</Text>
             </View>
             <View style={styles.lunchPref}>
               <Text style={styles.modalText}>No single use plastics?</Text>
-              <Switch onChange={togglePlasticSwitch} value={isBringingPlastic}></Switch>
+              <Switch
+                onChange={togglePlasticSwitch}
+                value={isBringingPlastic}
+              ></Switch>
             </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
@@ -132,7 +150,10 @@ const Driving = ({ navigation }) => {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Select your desk</Text>
             <View>
-              <Image source={require('../assets/office.png')} style={{width: 300, height: 300}}/>
+              <Image
+                source={require('../assets/office.png')}
+                style={{ width: 300, height: 300 }}
+              />
             </View>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
@@ -145,6 +166,37 @@ const Driving = ({ navigation }) => {
           </View>
         </View>
       </Modal>
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalBikeRentalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>10 Bikes are still available at your nearest Station.</Text>
+            <Text style={styles.modalText}>Reserve one below. </Text>
+            <View>
+              <Image
+                source={require('../assets/map.png')}
+                style={{ width: 300, height: 300 }}
+              />
+            </View>
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              onPress={() => {
+                setModalBikeRentalVisible(!modalBikeRentalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Done</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+      </Modal>
+
       <View style={styles.employeeCount}>
         <Text>Current employees in office: 24</Text>
         <Text>Current employees in your department: 6</Text>
@@ -179,6 +231,18 @@ const Driving = ({ navigation }) => {
           }}
         />
       </View>
+
+      <View style={styles.option}>
+        <FontAwesomeIcon icon={faBicycle} size={60} />
+        <FontAwesomeIcon icon={faCreditCard} size={60} />
+        <Button
+          title="Rent a Bike"
+          onPress={() => {
+            setModalBikeRentalVisible(true);
+          }}
+        />
+      </View>
+
       <Button
         title="Start journey"
         onPress={() => navigation.push('Confirmation')}

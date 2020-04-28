@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Avatar } from 'react-native-elements';
+import { Avatar, Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
   faBicycle,
@@ -15,39 +15,48 @@ import {
 const Profile = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.avatar}>
-        <Avatar
-          size={200}
-          rounded
-          source={{
-            uri:
-              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-          }}
-          showEditButton
-        />
-      </View>
-      <View style={styles.userInfo}>
-        <Text style={styles.name}>Jane Doe</Text>
-        <Text style={styles.department}>Department: Technology</Text>
-      </View>
-      <View style={styles.pointsRow}>
-        <FontAwesomeIcon
-          icon={faHeartbeat}
-          style={styles.heartIcon}
-          size={40}
-        />
-        <Text style={styles.pointsText}>{12}</Text>
-      </View>
-      <View style={styles.pointsRow}>
-        <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
-        <Text style={styles.pointsText}>{33}</Text>
-      </View>
+      <Card>
+        <View style={styles.avatar}>
+          <Avatar
+            size={200}
+            rounded
+            source={{
+              uri:
+                'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+            }}
+            showEditButton
+          />
+        </View>
+        <View style={styles.userInfo}>
+          <Text style={styles.name}>Jane Doe</Text>
+          <Text style={styles.department}>Department: Technology</Text>
+        </View>
+        <View style={styles.pointsRow}>
+          <FontAwesomeIcon
+            icon={faHeartbeat}
+            style={styles.heartIcon}
+            size={40}
+          />
+          <Text style={styles.pointsText}>{12}</Text>
+        </View>
+        <View style={styles.pointsRow}>
+          <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
+          <Text style={styles.pointsText}>{33}</Text>
+        </View>
+      </Card>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    height: '100%',
+    backgroundColor: '#b6d688',
+  },
+  card: {
+    alignSelf: 'center',
+    backgroundColor: '#fff',
+  },
   avatar: {
     marginTop: 60,
     marginBottom: 30,
