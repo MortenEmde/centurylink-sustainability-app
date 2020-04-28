@@ -3,6 +3,12 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import {
+  faHome,
+  faUser,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Scoreboard from './screens/Scoreboard';
@@ -43,11 +49,33 @@ const ScoreboardStackScreen = () => (
 const App = () => {
   return (
     <NavigationContainer>
-      
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Profile" component={ProfileStackScreen} />
-        <Tab.Screen name="Scoreboard" component={ScoreboardStackScreen} />
+      <Tab.Navigator initialRouteName="Home" activeColor="#ffffff">
+        <Tab.Screen
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: ({ color }) => (
+              <FontAwesomeIcon icon={faHome} color={color} size={40} />
+            ),
+          }}
+          name="Home"
+          component={HomeStackScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: () => <FontAwesomeIcon icon={faUser} size={40} />,
+          }}
+          name="Profile"
+          component={ProfileStackScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: () => <FontAwesomeIcon icon={faStar} size={40} />,
+          }}
+          name="Scoreboard"
+          component={ScoreboardStackScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

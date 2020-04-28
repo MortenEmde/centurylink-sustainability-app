@@ -6,6 +6,7 @@ import {
   Alert,
   Modal,
   TouchableHighlight,
+  Switch,
 } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
@@ -21,6 +22,8 @@ import { CheckBox, Button } from 'react-native-elements';
 const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
   const [modalDeskVisible, setModalDeskVisible] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <View>
       <Modal
@@ -33,10 +36,8 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Hello Car!
-              </Text>
-
+            <Text style={styles.modalText}>Hello Car!</Text>
+            <Switch onChange={toggleSwitch} value={isEnabled}></Switch>
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
               onPress={() => {
@@ -78,10 +79,11 @@ const Driving = ({ navigation }) => {
       <View style={styles.option}>
         <FontAwesomeIcon icon={faCarSide} size={60} />
         <FontAwesomeIcon icon={faUsers} size={60} />
-        <CheckBox
+        <Button
           // add state
           // checked={this.state.checked}
           // onPress={() => this.setState({checked: !this.state.checked})}
+          title="Carpool"
           onPress={() => {
             setModalCarpoolVisible(!modalCarpoolVisible);
           }}
@@ -90,7 +92,7 @@ const Driving = ({ navigation }) => {
       <View style={styles.option}>
         <FontAwesomeIcon icon={faUtensils} size={60} />
         <FontAwesomeIcon icon={faToolbox} size={60} />
-        <CheckBox
+        <Switch
         // add state
         // checked={this.state.checked}
         // onPress={() => this.setState({checked: !this.state.checked})}
@@ -99,7 +101,8 @@ const Driving = ({ navigation }) => {
       <View style={styles.option}>
         <FontAwesomeIcon icon={faDesktop} size={60} />
         <FontAwesomeIcon icon={faChair} size={60} />
-        <CheckBox
+        <Button
+          title="Select Chair"
           // add state
           // checked={this.state.checked}
           // onPress={() => this.setState({checked: !this.state.checked})}
