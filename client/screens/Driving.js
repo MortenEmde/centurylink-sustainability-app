@@ -215,8 +215,8 @@ const Driving = ({ navigation }) => {
       </Modal>
 
       <View style={styles.employeeCount}>
-        <Text>Current employees in office: 24</Text>
-        <Text>Current employees in your department: 6</Text>
+        <Text style={styles.employeeText}>Current employees in office: 24</Text>
+        <Text style={styles.employeeText}>Current employees in your department: 6</Text>
       </View>
       <View style={styles.option}>
         <View style={styles.iconSet}>
@@ -366,8 +366,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   employeeCount: {
-    alignItems: 'center',
-    marginTop: 15,
+    alignItems: 'flex-start',
+    marginVertical: 20,
+    marginHorizontal: 20,
+  },
+  employeeText: {
+ fontSize: 20,
+
   },
   map: {
     marginBottom: 20,
@@ -375,6 +380,7 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     margin: 20,
+    paddingBottom: 25,
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
