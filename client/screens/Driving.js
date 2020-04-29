@@ -24,7 +24,7 @@ import {
   faHeartbeat,
   faLeaf,
 } from '@fortawesome/free-solid-svg-icons';
-import { Button, Slider } from 'react-native-elements';
+import { Button, Slider, Icon } from 'react-native-elements';
 
 const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
@@ -66,16 +66,21 @@ const Driving = ({ navigation }) => {
             </View>
             <View style={styles.driverChoice}>
               <View style={{alignItems: 'center', marginRight: 20}}>
-              <FontAwesomeIcon icon={faCar} size={60} marginRight={0} />
-              <Text>As Driver</Text>
+                <Button
+                  buttonStyle={{ backgroundColor: '#3b8348' }}
+                  icon={
+                <FontAwesomeIcon icon={faCar} size={60} marginRight={0} />
+                  }
+                />
+                <Text>As driver</Text>
               </View>
-              {/* <Switch
-                disabled={!isCarpool}
-                onChange={togglePassengerSwitch}
-                value={isPassenger}
-              ></Switch> */}
               <View style={{alignItems: 'center', marginLeft: 20}}>
-              <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={0} />
+              <Button
+                  buttonStyle={{ backgroundColor: '#b6d688' }}
+                  icon={
+                <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={0} />
+                  }
+                />
               <Text>As Passenger</Text>
               </View>
             </View>
@@ -263,7 +268,7 @@ const Driving = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ marginHorizontal: 20, marginTop: 15, height: 60, backgroundColor: '#3b8348', }}
+        buttonStyle={{ marginHorizontal: 20, marginTop: 70, height: 60, backgroundColor: '#3b8348', }}
         title="Start journey"
         titleStyle={{fontWeight: 'bold', fontSize: 20}}
         onPress={() => navigation.push('Confirmation')}
@@ -376,6 +381,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     margin: 15,
+    marginBottom: 20
   },
   lunchPref: {
     flexDirection: 'row',
@@ -403,6 +409,8 @@ const styles = StyleSheet.create({
   },
   doneButtonLunch: {
     alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 10
   },
 });
 

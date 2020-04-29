@@ -246,7 +246,7 @@ const PublicTransport = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ marginHorizontal: 20, marginTop: 15, height: 60, backgroundColor: '#3b8348', }}
+        buttonStyle={{ marginHorizontal: 20, marginTop: 70, height: 60, backgroundColor: '#3b8348', }}
         title="Start journey"
         titleStyle={{fontWeight: 'bold', fontSize: 20}}
         onPress={() => navigation.push('Confirmation')}
@@ -386,6 +386,8 @@ const styles = StyleSheet.create({
   },
   doneButtonLunch: {
     alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 10
   },
 });
 
