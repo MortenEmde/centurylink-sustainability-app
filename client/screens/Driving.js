@@ -30,10 +30,9 @@ const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
   const [modalLunchVisible, setModalLunchVisible] = useState(false);
   const [modalDeskVisible, setModalDeskVisible] = useState(false);
-  const [modalBikeRentalVisible, setModalBikeRentalVisible] = useState(false);
 
   const [isCarpool, setIsCarpool] = useState(false);
-  const [isPassenger, setIsPassenger] = useState(false);
+  // const [isPassenger, setIsPassenger] = useState(false);
   const [isBringingLunch, setIsBringingLunch] = useState(false);
   const [isBringingCup, setIsBringingCup] = useState(false);
   const [lunchForColleagues, setLunchForColleagues] = useState(0);
@@ -41,8 +40,7 @@ const Driving = ({ navigation }) => {
 
   const toggleCarpoolSwitch = () =>
     setIsCarpool((previousState) => !previousState);
-  const togglePassengerSwitch = () =>
-    setIsPassenger((previousState) => !previousState);
+  // const togglePassengerSwitch = () => setIsPassenger((previousState) => !previousState);
   const toggleLunchSwitch = () =>
     setIsBringingLunch((previousState) => !previousState);
   const toggleCupSwitch = () =>
@@ -189,56 +187,6 @@ const Driving = ({ navigation }) => {
         </View>
       </Modal>
 
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalBikeRentalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Bikes available at your nearest Station
-            </Text>
-            <Text style={styles.bikeNumber}>10</Text>
-            <Text style={styles.modalText}>Reserve one below </Text>
-            <View style={styles.map}>
-              <Image
-                source={require('../assets/map.png')}
-                style={{ width: 300, height: 300 }}
-              />
-            </View>
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
-              onPress={() => {
-                setModalBikeRentalVisible(!modalBikeRentalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Done</Text>
-            </TouchableHighlight>
-          </View>
-        </View>
-      </Modal>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <View style={styles.employeeCount}>
         <Text style={styles.employeeText}>Current employees in office: 24</Text>
         <Text style={styles.employeeText}>
@@ -274,8 +222,8 @@ const Driving = ({ navigation }) => {
       </View>
       <View style={styles.option}>
         <View style={styles.iconSet}>
-          <FontAwesomeIcon icon={faUtensils} size={60} />
           <FontAwesomeIcon icon={faToolbox} size={60} />
+          <FontAwesomeIcon icon={faUtensils} size={60} />    
         </View>
         <View style={styles.mainPoints}>
           <View style={styles.pointsRow}>
@@ -310,34 +258,6 @@ const Driving = ({ navigation }) => {
           title="Select Desk"
           onPress={() => {
             setModalDeskVisible(true);
-          }}
-        />
-      </View>
-
-      <View style={styles.option}>
-        <View style={styles.iconSet}>
-          <FontAwesomeIcon icon={faBicycle} size={60} />
-          <FontAwesomeIcon icon={faCreditCard} size={60} />
-        </View>
-        <View style={styles.mainPoints}>
-          <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-              icon={faHeartbeat}
-              style={styles.heartIcon}
-              size={20}
-            />
-            <Text style={styles.pointsText}>+{5}</Text>
-          </View>
-          <View style={styles.pointsRow}>
-            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
-            <Text style={styles.pointsText}>+{11}</Text>
-          </View>
-        </View>
-        <Button style={{ marginLeft: 25}}
-          buttonStyle={{ backgroundColor: '#3b8348' }}
-          title="Rent a Bike"
-          onPress={() => {
-            setModalBikeRentalVisible(true);
           }}
         />
       </View>
