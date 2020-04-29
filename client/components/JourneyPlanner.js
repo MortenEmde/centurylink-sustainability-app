@@ -21,7 +21,6 @@ const JourneyPlanner = () => {
             placeholder="Add your destination"
             onChangeText={newDestination => setInputDestination(newDestination)}
             />
-        <Text>{origin} {'text'} {destination}</Text>
         <Button onPress={() => updateJourney(inputOrigin, inputDestination)} title="Submit" />
         </View>
       )}

@@ -7,7 +7,7 @@ import { faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-sv
 const PreferenceButton = ({ type, sortItems }) => {
   const icon = {
     star: { name: faStar, color: 'yellow' },
-    environment: { name: faLeaf, color: 'white' },
+    environment: { name: faLeaf, color: '#a4c0a6' },
     health: { name: faHeartbeat, color: 'red' },
     time: { name: faClock, color: 'black' },
   };
