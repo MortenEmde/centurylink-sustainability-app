@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
   
   return (
     <JourneyContext.Provider value={journey}>
-        <View style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.journeyPlanner}>
           <JourneyPlanner />
         </View>

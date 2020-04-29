@@ -73,6 +73,7 @@ const Scoreboard = () => {
         <Card
           containerStyle={{ padding: 0, backgroundColor: 'black', }}
         >
+          <View>
           <Text style={styles.header}>Department Top 5 </Text>
           {department.map((u, i) => {
             return (
@@ -101,10 +102,12 @@ const Scoreboard = () => {
               />
             );
           })}
+          </View>
         </Card>
         <Card
           containerStyle={{ padding: 0, backgroundColor: 'black', }}
         >
+          <View>
           <Text style={styles.header}>Office Top 3</Text>
           {office.map((u, i) => {
             return (
@@ -133,6 +136,7 @@ const Scoreboard = () => {
               />
             );
           })}
+          </View>
         </Card>
       </ScrollView>
     </View>
