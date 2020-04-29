@@ -1,19 +1,31 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Button, Text } from 'react-native';
 import { Input } from 'react-native-elements';
+import { JourneyContext } from '../contexts/journey.js';
 
 const JourneyPlanner = () => {
+  const [inputOrigin, setInputOrigin] = useState('');
+  const [inputDestination, setInputDestination] = useState('');
+
   return (
-    <View style={styles.container}>
-      <Input
-        leftIcon={{ type: 'font-awesome', name: 'home', marginRight: 15 }}
-        placeholder="Add your departure location"
-      />
-      <Input
-        leftIcon={{ type: 'font-awesome', name: 'briefcase', marginRight: 15 }}
-        placeholder="Add your destination"
-      />
-    </View>
+    <JourneyContext.Consumer>
+      {({origin, destination, updateJourney}) => (
+        <View style={styles.container}>
+          <Input
+          leftIcon={{ type: 'font-awesome', name: 'home', marginRight: 15 }}
+          placeholder="Add your departure location"
+          onChangeText={newOrigin => setInputOrigin(newOrigin)}
+        />
+          <Input
+            leftIcon={{ type: 'font-awesome', name: 'briefcase', marginRight: 15 }}
+            placeholder="Add your destination"
+            onChangeText={newDestination => setInputDestination(newDestination)}
+            />
+        <Text>{origin} {'text'} {destination}</Text>
+        <Button onPress={() => updateJourney(inputOrigin, inputDestination)} title="Send" />
+        </View>
+      )}
+    </JourneyContext.Consumer>
   );
 };
 

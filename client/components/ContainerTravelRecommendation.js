@@ -2,20 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
-const ContainerTravelRecommendation = ({ preference, navigation }) => {
+const ContainerTravelRecommendation = ({ preference, navigation, origin, destination }) => {
   const [journeyData, setJourneyData] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = async (origin, destination) => {    
     const unparsedData = await fetch('http://localhost:5000/api', {
       method: 'POST',
+      body: JSON.stringify(origin, destination),
     });
     const data = await unparsedData.json();
     setJourneyData(data);
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(origin, destination);
+  }, [origin, destination]);
 
   const travelOptionCheck = (travelOption) => {
     if (travelOption) {
