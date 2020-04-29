@@ -22,7 +22,7 @@ const JourneyPlanner = () => {
             onChangeText={newDestination => setInputDestination(newDestination)}
             />
         <Text>{origin} {'text'} {destination}</Text>
-        <Button onPress={() => updateJourney(inputOrigin, inputDestination)} title="Send" />
+        <Button onPress={() => updateJourney(inputOrigin, inputDestination)} title="Submit" />
         </View>
       )}
     </JourneyContext.Consumer>

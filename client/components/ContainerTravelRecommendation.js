@@ -8,14 +8,19 @@ const ContainerTravelRecommendation = ({ preference, navigation, origin, destina
   const fetchData = async (origin, destination) => {    
     const unparsedData = await fetch('http://localhost:5000/api', {
       method: 'POST',
-      body: JSON.stringify(origin, destination),
+      body: JSON.stringify({origin, destination}),
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
     const data = await unparsedData.json();
     setJourneyData(data);
   };
 
   useEffect(() => {
-    fetchData(origin, destination);
+    if (origin !== '' && destination !== '') {
+      fetchData(origin, destination);
+    }
   }, [origin, destination]);
 
   const travelOptionCheck = (travelOption) => {

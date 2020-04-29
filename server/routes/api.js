@@ -22,6 +22,7 @@ router.post('/', async function(req, res, next) {
     } else { // route doesn't yet exists in database, hit API and store it in database
     const travelMethods = ['cycling', 'walking', 'driving', 'transit']
   
+    // fetch for google maps distance matrix API
     const fetchJourney = async (travelMethod) => {
       // const request = await fetch(`INSERT URL HERE`);
       // const data = await request.json();
@@ -29,16 +30,26 @@ router.post('/', async function(req, res, next) {
       const request = require(`../mock/${travelMethod}.json`);
       return request;
     }
+
+    // fetch for point system API (to be build by Centurylink)
+    const fetchPoints = async () => {
+      // const request = await fetch(`INSERT URL HERE`);
+      // const data = await request.json();
+      // return data;
+      const requestPoints = require(`../mock/points.json`);
+      return requestPoints;
+    }
   
     // structure the retrieved data to the schema we want in the database and frontend
     const journeyData = async (travelMethod) => {
-      const result = await fetchJourney(travelMethod);
-      const origin = await result.origin_addresses[0];
-      const destination = await result.destination_addresses[0];
-      const time = await result.rows[0].elements[0].duration.text;
-      const timeValue = await result.rows[0].elements[0].duration.value;
-      const healthPoints = Math.floor(Math.random() * 10) + 1;
-      const sustainabilityPoints = Math.floor(Math.random() * 10) + 1;
+      const journey = await fetchJourney(travelMethod);
+      const points = await fetchPoints();
+      const origin = await journey.origin_addresses[0];
+      const destination = await journey.destination_addresses[0];
+      const time = await journey.rows[0].elements[0].duration.text;
+      const timeValue = await journey.rows[0].elements[0].duration.value;
+      const healthPoints = await points[travelMethod].points.hearts;
+      const sustainabilityPoints = await points[travelMethod].points.leaves;
       return {method: travelMethod, origin, destination, time, timeValue, healthPoints, sustainabilityPoints}
     }
   
