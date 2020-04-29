@@ -51,7 +51,7 @@ const Driving = ({ navigation }) => {
     setIsBringingPlastic((previousState) => !previousState);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Modal
         animationType="fade"
         transparent={true}
@@ -67,13 +67,19 @@ const Driving = ({ navigation }) => {
               <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
             </View>
             <View style={styles.driverChoice}>
-              <FontAwesomeIcon icon={faCar} size={60} marginRight={20} />
-              <Switch
+              <View style={{alignItems: 'center', marginRight: 20}}>
+              <FontAwesomeIcon icon={faCar} size={60} marginRight={0} />
+              <Text>As Driver</Text>
+              </View>
+              {/* <Switch
                 disabled={!isCarpool}
                 onChange={togglePassengerSwitch}
                 value={isPassenger}
-              ></Switch>
-              <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={20} />
+              ></Switch> */}
+              <View style={{alignItems: 'center', marginLeft: 20}}>
+              <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={0} />
+              <Text>As Passenger</Text>
+              </View>
             </View>
             <View style={styles.map}>
               <Image
@@ -132,13 +138,14 @@ const Driving = ({ navigation }) => {
                 Bringing lunch for colleagues?
               </Text>
               <Slider
+                
                 value={lunchForColleagues}
                 minimumValue={0}
                 maximumValue={10}
                 step={1}
                 onValueChange={(value) => setLunchForColleagues(value)}
               />
-              <Text>{lunchForColleagues}</Text>
+              <Text style={{fontSize: 20}}>{lunchForColleagues}</Text>
             </View>
             <View style={styles.doneButtonLunch}>
               <TouchableHighlight
@@ -163,7 +170,7 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Select your desk</Text>
+            <Text style={[styles.modalText],{fontSize: 25, marginBottom: 30}}>Select your desk</Text>
             <View style={styles.office}>
               <Image
                 source={require('../assets/office.png')}
@@ -215,6 +222,23 @@ const Driving = ({ navigation }) => {
         </View>
       </Modal>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <View style={styles.employeeCount}>
         <Text style={styles.employeeText}>Current employees in office: 24</Text>
         <Text style={styles.employeeText}>
@@ -240,7 +264,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
-        <Button
+        <Button style={{ marginLeft: 50}}
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Carpool"
           onPress={() => {
@@ -309,7 +333,7 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
-        <Button
+        <Button style={{ marginLeft: 25}}
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Rent a Bike"
           onPress={() => {
@@ -319,8 +343,9 @@ const Driving = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ height: 60, backgroundColor: '#3b8348' }}
+        buttonStyle={{ marginHorizontal: 20, marginTop: 15, height: 60, backgroundColor: '#3b8348', }}
         title="Start journey"
+        titleStyle={{fontWeight: 'bold', fontSize: 20}}
         onPress={() => navigation.push('Confirmation')}
       />
     </View>
@@ -328,6 +353,10 @@ const Driving = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+    backgroundColor: '#fff',
+  },
   mainPoints: {},
   pointsRow: {
     flexDirection: 'row',
@@ -357,11 +386,16 @@ const styles = StyleSheet.create({
   },
   employeeCount: {
     alignItems: 'flex-start',
-    marginVertical: 20,
-    marginHorizontal: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    backgroundColor: 'black',
+    
+    width: '100%'
   },
   employeeText: {
-    fontSize: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
   },
   bikeNumber: {
     fontSize: 40,
@@ -383,7 +417,7 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     margin: 20,
-    paddingBottom: 25,
+    paddingTop: 30,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -431,14 +465,16 @@ const styles = StyleSheet.create({
   },
   openButton: {
     backgroundColor: '#F194FF',
-    borderRadius: 20,
-    padding: 10,
+    borderRadius: 40,
+    paddingHorizontal: 45,
+    paddingVertical: 15,
     elevation: 2,
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+    fontSize: 20
   },
   modalText: {
     margin: 15,
