@@ -22,7 +22,7 @@ import {
   faBicycle,
   faCreditCard,
   faHeartbeat,
-  faLeaf
+  faLeaf,
 } from '@fortawesome/free-solid-svg-icons';
 import { Button, Slider } from 'react-native-elements';
 
@@ -103,29 +103,29 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={[styles.modalView, styles.modalLunchView]}>
-
-<View style={styles.lunchChoices}>
-
-                    <View style={styles.lunchPref}>
-                      <Text style={styles.modalText}>Bringing own lunch?</Text>
-                      <Switch
-                        onChange={toggleLunchSwitch}
-                        value={isBringingLunch}
-                      ></Switch>
-                    </View>
-                  <View style={styles.lunchPref}>
-                    <Text style={styles.modalText}>Bringing own cup?</Text>
-                    <Switch onChange={toggleCupSwitch} value={isBringingCup}></Switch>
-                  </View>
-                    <View style={styles.lunchPref}>
-                      <Text style={styles.modalText}>No single use plastics?</Text>
-                      <Switch
-                        onChange={togglePlasticSwitch}
-                        value={isBringingPlastic}
-                      ></Switch>
-                    </View>
-     </View>      
-
+            <View style={styles.lunchChoices}>
+              <View style={styles.lunchPref}>
+                <Text style={styles.modalText}>Bringing own lunch?</Text>
+                <Switch
+                  onChange={toggleLunchSwitch}
+                  value={isBringingLunch}
+                ></Switch>
+              </View>
+              <View style={styles.lunchPref}>
+                <Text style={styles.modalText}>Bringing own cup?</Text>
+                <Switch
+                  onChange={toggleCupSwitch}
+                  value={isBringingCup}
+                ></Switch>
+              </View>
+              <View style={styles.lunchPref}>
+                <Text style={styles.modalText}>No single use plastics?</Text>
+                <Switch
+                  onChange={togglePlasticSwitch}
+                  value={isBringingPlastic}
+                ></Switch>
+              </View>
+            </View>
 
             <View>
               <Text style={styles.modalText}>
@@ -140,15 +140,15 @@ const Driving = ({ navigation }) => {
               />
               <Text>{lunchForColleagues}</Text>
             </View>
-<View style={styles.doneButtonLunch}>
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
-              onPress={() => {
-                setModalLunchVisible(!modalLunchVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Done</Text>
-            </TouchableHighlight>
+            <View style={styles.doneButtonLunch}>
+              <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: '#3b8348' }}
+                onPress={() => {
+                  setModalLunchVisible(!modalLunchVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>Done</Text>
+              </TouchableHighlight>
             </View>
           </View>
         </View>
@@ -164,7 +164,7 @@ const Driving = ({ navigation }) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Select your desk</Text>
-            <View>
+            <View style={styles.office}>
               <Image
                 source={require('../assets/office.png')}
                 style={{ width: 300, height: 300 }}
@@ -193,10 +193,11 @@ const Driving = ({ navigation }) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>
-              10 Bikes are still available at your nearest Station.
+              Bikes available at your nearest Station
             </Text>
-            <Text style={styles.modalText}>Reserve one below. </Text>
-            <View>
+            <Text style={styles.bikeNumber}>10</Text>
+            <Text style={styles.modalText}>Reserve one below </Text>
+            <View style={styles.map}>
               <Image
                 source={require('../assets/map.png')}
                 style={{ width: 300, height: 300 }}
@@ -216,7 +217,9 @@ const Driving = ({ navigation }) => {
 
       <View style={styles.employeeCount}>
         <Text style={styles.employeeText}>Current employees in office: 24</Text>
-        <Text style={styles.employeeText}>Current employees in your department: 6</Text>
+        <Text style={styles.employeeText}>
+          Current employees in your department: 6
+        </Text>
       </View>
       <View style={styles.option}>
         <View style={styles.iconSet}>
@@ -277,20 +280,7 @@ const Driving = ({ navigation }) => {
           <FontAwesomeIcon icon={faDesktop} size={60} />
           <FontAwesomeIcon icon={faChair} size={60} />
         </View>
-        <View style={styles.mainPoints}>
-          <View style={styles.pointsRow}>
-            <FontAwesomeIcon
-              icon={faHeartbeat}
-              style={styles.heartIcon}
-              size={20}
-            />
-            <Text style={styles.pointsText}>+{5}</Text>
-          </View>
-          <View style={styles.pointsRow}>
-            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
-            <Text style={styles.pointsText}>+{11}</Text>
-          </View>
-        </View>
+  
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Select Desk"
@@ -329,7 +319,7 @@ const Driving = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ backgroundColor: '#3b8348' }}
+        buttonStyle={{ height: 60, backgroundColor: '#3b8348' }}
         title="Start journey"
         onPress={() => navigation.push('Confirmation')}
       />
@@ -371,18 +361,31 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   employeeText: {
- fontSize: 20,
-
+    fontSize: 20,
+  },
+  bikeNumber: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: 'red',
   },
   map: {
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#000',
+    borderRadius: 2,
+  },
+  office: {
+    marginBottom: 20,
+    borderWidth: 2,
+    borderColor: '#000',
+    borderRadius: 2,
   },
   option: {
     flexDirection: 'row',
     margin: 20,
     paddingBottom: 25,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
   },
   iconSet: {
     flexDirection: 'row',
@@ -443,8 +446,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   doneButtonLunch: {
-    alignSelf: "center",
-  }
+    alignSelf: 'center',
+  },
 });
 
 export default Driving;

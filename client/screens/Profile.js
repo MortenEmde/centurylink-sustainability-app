@@ -28,9 +28,10 @@ const Profile = () => {
           />
         </View>
         <View style={styles.userInfo}>
-          <Text style={styles.name}>Jane Doe</Text>
+          <Text style={styles.name}>Jane Porter</Text>
           <Text style={styles.department}>Department: Technology</Text>
         </View>
+        <View style={styles.allPoints}>
         <View style={styles.pointsRow}>
           <FontAwesomeIcon
             icon={faHeartbeat}
@@ -43,6 +44,7 @@ const Profile = () => {
           <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
           <Text style={styles.pointsText}>{33}</Text>
         </View>
+        </View>
       </Card>
     </View>
   );
@@ -50,6 +52,7 @@ const Profile = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 11,
     height: '100%',
     backgroundColor: '#b6d688',
   },
@@ -58,8 +61,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   avatar: {
-    marginTop: 60,
-    marginBottom: 30,
+    marginTop: 50,
+    marginBottom: 40,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -78,6 +81,9 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     color: 'grey',
     marginBottom: 10,
+  },
+  allPoints: {
+    marginBottom: 40,
   },
   pointsRow: {
     flexDirection: 'row',

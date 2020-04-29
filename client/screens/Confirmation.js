@@ -3,10 +3,13 @@ import { StyleSheet, Text, View } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHeartbeat, faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { faSmile } from '@fortawesome/free-regular-svg-icons';
+import { Card } from 'react-native-elements';
 
 const Confirmation = () => {
   return (
     <View style={styles.container}>
+    <Card >
+      <View style={styles.card}> 
       <Text style={styles.text}>Your points are pending...</Text>
       <View style={styles.mainPoints}>
         <View style={styles.pointsRow}>
@@ -24,6 +27,8 @@ const Confirmation = () => {
       </View>
       <FontAwesomeIcon style={styles.smileIcon} icon={faSmile} color={'#3b8348'} size={90} />
       <Text style={styles.text}>Have a nice Journey!</Text>
+      </View>
+    </Card>
     </View>
   );
 };
@@ -33,7 +38,12 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#b6d688',
+  },
+  card: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    
   },
   text: {
     fontSize: 30,

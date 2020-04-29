@@ -69,16 +69,11 @@ const Scoreboard = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
+        
         <Card
-          containerStyle={{ padding: 0 }}
-          title="Department Top 5"
-          titleStyle={{
-            backgroundColor: 'black',
-            color: 'white',
-            margin: 0,
-            padding: 0,
-          }}
+          containerStyle={{ padding: 0, backgroundColor: 'black', }}
         >
+          <Text style={styles.header}>Department Top 5 </Text>
           {department.map((u, i) => {
             return (
               <ListItem
@@ -108,15 +103,9 @@ const Scoreboard = () => {
           })}
         </Card>
         <Card
-          containerStyle={{ padding: 0 }}
-          title="Office Top 3"
-          titleStyle={{
-            backgroundColor: 'black',
-            color: 'white',
-            margin: 0,
-            padding: 0,
-          }}
+          containerStyle={{ padding: 0, backgroundColor: 'black', }}
         >
+          <Text style={styles.header}>Office Top 3</Text>
           {office.map((u, i) => {
             return (
               <ListItem
@@ -152,8 +141,18 @@ const Scoreboard = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 11,
     height: '100%',
     backgroundColor: '#b6d688',
+  },
+  header: {
+    alignSelf: 'center',
+    color: 'white',
+    backgroundColor: 'black',
+    fontWeight: 'bold',
+    fontSize: 20,
+    paddingVertical: 5,
+
   },
   leafIcon: {
     marginLeft: 20,
