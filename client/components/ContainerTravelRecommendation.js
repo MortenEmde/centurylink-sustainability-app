@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
 const ContainerTravelRecommendation = ({ preference, navigation, origin, destination }) => {
   const [journeyData, setJourneyData] = useState([]);
 
   const fetchData = async (origin, destination) => {    
-    const unparsedData = await fetch('http://localhost:5000/api', {
+    const unparsedData = await fetch('http://192.168.2.126:5000/api', {
       method: 'POST',
       body: JSON.stringify({origin, destination}),
       headers: {
@@ -47,7 +47,7 @@ const ContainerTravelRecommendation = ({ preference, navigation, origin, destina
   };
 
   return (
-    <View style={styles.flatListContainer}>
+    <SafeAreaView style={styles.flatListContainer}>
       <FlatList
         style={styles.journeyList}
         data={journeyData.sort((a, b) => sortFunction(a, b, preference))}
@@ -60,13 +60,18 @@ const ContainerTravelRecommendation = ({ preference, navigation, origin, destina
           />
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
 // TBC styles
 const styles = StyleSheet.create({
-  flatListContainer: {},
+  flatListContainer: {
+    flex: 1,
+    marginBottom: 230,
+  },
+  journeyList: {
+  }
 });
 
 export default ContainerTravelRecommendation;
