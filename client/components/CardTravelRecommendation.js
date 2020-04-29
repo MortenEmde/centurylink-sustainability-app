@@ -12,7 +12,7 @@ import {
   faBicycle,
   faWalking,
   faCarSide,
-  faShuttleVan,
+  faTrain,
   faLeaf,
   faHeartbeat,
   faClock,
@@ -27,7 +27,7 @@ const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
     } else if (journeyInfo.method === 'driving') {
       return faCarSide;
     } else if (journeyInfo.method === 'transit') {
-      return faShuttleVan;
+      return faTrain;
     }
   };
 

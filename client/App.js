@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHome, faUser, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faListOl } from '@fortawesome/free-solid-svg-icons';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Scoreboard from './screens/Scoreboard';
@@ -75,7 +75,7 @@ const App = () => {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color }) => (
-              <FontAwesomeIcon icon={faStar} color={color} size={35} />
+              <FontAwesomeIcon icon={faListOl} color={color} size={35} />
             ),
           }}
           name="Scoreboard"
