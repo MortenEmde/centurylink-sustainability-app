@@ -2,15 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Avatar, Card } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {
-  faBicycle,
-  faWalking,
-  faCarSide,
-  faShuttleVan,
-  faLeaf,
-  faHeartbeat,
-  faClock,
-} from '@fortawesome/free-solid-svg-icons';
+import { faLeaf, faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
   return (
@@ -38,11 +30,11 @@ const Profile = () => {
             style={styles.heartIcon}
             size={40}
           />
-          <Text style={styles.pointsText}>{12}</Text>
+          <Text style={styles.pointsText}>{42}</Text>
         </View>
         <View style={styles.pointsRow}>
           <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
-          <Text style={styles.pointsText}>{33}</Text>
+          <Text style={styles.pointsText}>{41}</Text>
         </View>
         </View>
       </Card>

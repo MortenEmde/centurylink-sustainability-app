@@ -60,7 +60,6 @@ const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
                 size={60}
               />
             </View>
-
             <View style={styles.subContainer}>
               <Text style={styles.pointText}>
                 {' '}
@@ -71,7 +70,6 @@ const CardTravelRecommendation = ({ journeyInfo, navigation }) => {
                 />{' '}
                 {journeyInfo.healthPoints}
               </Text>
-
               <Text style={styles.pointText}>
                 <FontAwesomeIcon
                   icon={faLeaf}
@@ -104,6 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   clockText: {
+    marginTop: 10,
     fontSize: 13,
   },
   card: {
@@ -128,7 +127,6 @@ const styles = StyleSheet.create({
   },
   clockIcon: {
     color: 'black',
-    marginBottom: 10,
   },
   mainIcon: {
     color: 'black',

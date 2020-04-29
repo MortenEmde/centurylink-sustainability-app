@@ -46,22 +46,22 @@ const office = [
     name: 'Billy',
     avatar: 'https://randomuser.me/api/portraits/men/66.jpg',
     rank: '1',
-    hearts: '42',
-    leaves: '41',
+    hearts: '72',
+    leaves: '61',
   },
   {
     name: 'Angelina',
     avatar: 'https://randomuser.me/api/portraits/women/36.jpg',
     rank: '2',
-    hearts: '32',
-    leaves: '22',
+    hearts: '67',
+    leaves: '52',
   },
   {
     name: 'Sam',
     avatar: 'https://randomuser.me/api/portraits/men/49.jpg',
     rank: '3',
-    hearts: '31',
-    leaves: '21',
+    hearts: '53',
+    leaves: '49',
   },
 ];
 

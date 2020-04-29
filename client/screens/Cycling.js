@@ -11,14 +11,10 @@ import {
 } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
-  faCarSide,
-  faUsers,
   faUtensils,
   faToolbox,
   faChair,
   faDesktop,
-  faCar,
-  faUserFriends,
   faBicycle,
   faCreditCard,
   faHeartbeat,
@@ -215,11 +211,11 @@ const Cycling = ({ navigation }) => {
               style={styles.heartIcon}
               size={20}
             />
-            <Text style={styles.pointsText}>+{5}</Text>
+            <Text style={styles.pointsText}>+{3}</Text>
           </View>
           <View style={styles.pointsRow}>
             <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
-            <Text style={styles.pointsText}>+{11}</Text>
+            <Text style={styles.pointsText}>+{9}</Text>
           </View>
         </View>
         <Button

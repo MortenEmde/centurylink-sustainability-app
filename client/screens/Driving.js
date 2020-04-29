@@ -19,12 +19,10 @@ import {
   faDesktop,
   faCar,
   faUserFriends,
-  faBicycle,
-  faCreditCard,
   faHeartbeat,
   faLeaf,
 } from '@fortawesome/free-solid-svg-icons';
-import { Button, Slider, Icon } from 'react-native-elements';
+import { Button, Slider } from 'react-native-elements';
 
 const Driving = ({ navigation }) => {
   const [modalCarpoolVisible, setModalCarpoolVisible] = useState(false);
@@ -237,11 +235,11 @@ const Driving = ({ navigation }) => {
               style={styles.heartIcon}
               size={20}
             />
-            <Text style={styles.pointsText}>+{5}</Text>
+            <Text style={styles.pointsText}>+{3}</Text>
           </View>
           <View style={styles.pointsRow}>
             <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={20} />
-            <Text style={styles.pointsText}>+{11}</Text>
+            <Text style={styles.pointsText}>+{9}</Text>
           </View>
         </View>
         <Button
