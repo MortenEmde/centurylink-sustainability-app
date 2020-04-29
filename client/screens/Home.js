@@ -38,6 +38,8 @@ const Home = ({ navigation }) => {
           <ContainerTravelRecommendation
             preference={preference}
             navigation={navigation}
+            origin={origin}
+            destination={destination}
             />
         </View>
       </View>
