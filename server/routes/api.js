@@ -12,9 +12,9 @@ router.post('/', async function(req, res, next) {
 
   const journeys = await getJourneys(req, res, next);
   
-  // if route alreaqdy exists in database, serve from database
+  // if route already exists in database, serve from database
   const databaseHits = await journeys.filter(journey => 
-    journey.origin === requestOrigin && journey.destination === requestDestination);
+    journey.origin === requestOrigin.toLowerCase() && journey.destination === requestDestination.toLowerCase());
     if (databaseHits.length > 0) {
       // send from mongoDB
       res.send(databaseHits);
@@ -44,8 +44,8 @@ router.post('/', async function(req, res, next) {
     const journeyData = async (travelMethod) => {
       const journey = await fetchJourney(travelMethod);
       const points = await fetchPoints();
-      const origin = await journey.origin_addresses[0];
-      const destination = await journey.destination_addresses[0];
+      const origin = requestOrigin.toLowerCase();
+      const destination = requestDestination.toLowerCase();
       const time = await journey.rows[0].elements[0].duration.text;
       const timeValue = await journey.rows[0].elements[0].duration.value;
       const healthPoints = await points[travelMethod].points.hearts;
