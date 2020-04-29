@@ -2,33 +2,46 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import JourneyPlanner from '../components/JourneyPlanner';
 import PreferenceButton from '../components/PreferenceButton';
-import ContainerTravelRecommendation from '../components/ContainerTravelRecommendation'
+import ContainerTravelRecommendation from '../components/ContainerTravelRecommendation';
+import { JourneyContext } from '../contexts/journey.js';
 
 const Home = ({ navigation }) => {
   const [preference, setPreference] = useState('star');
-
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  
+  const updateJourney = (newOrigin, newDestination) => {
+    setOrigin(newOrigin);
+    setDestination(newDestination);
+    console.log(newOrigin, newDestination);
+  }
+  
   const sortItems = (newPreference) => {
     setPreference(newPreference);
   };
 
+  const journey = {origin, destination, updateJourney};
+  
   return (
-    <View style={styles.container}>
-      <View style={styles.journeyPlanner}>
-        <JourneyPlanner />
+    <JourneyContext.Provider value={journey}>
+        <View style={styles.container}>
+        <View style={styles.journeyPlanner}>
+          <JourneyPlanner />
+        </View>
+        <View style={styles.preferenceButtons}>
+          <PreferenceButton type="star" sortItems={sortItems} />
+          <PreferenceButton type="health" sortItems={sortItems} />
+          <PreferenceButton type="environment" sortItems={sortItems} />
+          <PreferenceButton type="time" sortItems={sortItems} />
+        </View>
+        <View style={styles.listContainer}>
+          <ContainerTravelRecommendation
+            preference={preference}
+            navigation={navigation}
+            />
+        </View>
       </View>
-      <View style={styles.preferenceButtons}>
-        <PreferenceButton type="star" sortItems={sortItems} />
-        <PreferenceButton type="health" sortItems={sortItems} />
-        <PreferenceButton type="environment" sortItems={sortItems} />
-        <PreferenceButton type="time" sortItems={sortItems} />
-      </View>
-      <View style={styles.listContainer}>
-        <ContainerTravelRecommendation
-          preference={preference}
-          navigation={navigation}
-        />
-      </View>
-    </View>
+    </JourneyContext.Provider>
   );
 };
 

@@ -43,6 +43,7 @@ const ScoreboardStackScreen = () => (
 );
 
 const App = () => {
+
   return (
     <NavigationContainer>
       <Tab.Navigator
