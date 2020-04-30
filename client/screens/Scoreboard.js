@@ -69,73 +69,68 @@ const Scoreboard = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        
-        <Card
-          containerStyle={{ padding: 0, backgroundColor: 'black', }}
-        >
+        <Card containerStyle={{ padding: 0, backgroundColor: 'black' }}>
           <View>
-          <Text style={styles.header}>Department Top 5 </Text>
-          {department.map((u, i) => {
-            return (
-              <ListItem
-                key={i}
-                roundAvatar
-                title={u.name}
-                leftAvatar={{ source: { uri: u.avatar } }}
-                bottomDivider
-                rightTitle={
-                  <View style={styles.pointsContainer}>
-                    <FontAwesomeIcon
-                      icon={faHeartbeat}
-                      style={styles.heartIcon}
-                      size={30}
-                    />
-                    <Text style={styles.pointsText}>{u.hearts}</Text>
-                    <FontAwesomeIcon
-                      icon={faLeaf}
-                      style={styles.leafIcon}
-                      size={30}
-                    />
-                    <Text style={styles.pointsText}>{u.leaves}</Text>
-                  </View>
-                }
-              />
-            );
-          })}
+            <Text style={styles.header}>Department Top 5 </Text>
+            {department.map((u, i) => {
+              return (
+                <ListItem
+                  key={i}
+                  roundAvatar
+                  title={u.name}
+                  leftAvatar={{ source: { uri: u.avatar } }}
+                  bottomDivider
+                  rightTitle={
+                    <View style={styles.pointsContainer}>
+                      <FontAwesomeIcon
+                        icon={faHeartbeat}
+                        style={styles.heartIcon}
+                        size={30}
+                      />
+                      <Text style={styles.pointsText}>{u.hearts}</Text>
+                      <FontAwesomeIcon
+                        icon={faLeaf}
+                        style={styles.leafIcon}
+                        size={30}
+                      />
+                      <Text style={styles.pointsText}>{u.leaves}</Text>
+                    </View>
+                  }
+                />
+              );
+            })}
           </View>
         </Card>
-        <Card
-          containerStyle={{ padding: 0, backgroundColor: 'black', }}
-        >
+        <Card containerStyle={{ padding: 0, backgroundColor: 'black' }}>
           <View>
-          <Text style={styles.header}>Office Top 3</Text>
-          {office.map((u, i) => {
-            return (
-              <ListItem
-                key={i}
-                roundAvatar
-                title={u.name}
-                leftAvatar={{ source: { uri: u.avatar } }}
-                bottomDivider
-                rightTitle={
-                  <View style={styles.pointsContainer}>
-                    <FontAwesomeIcon
-                      icon={faHeartbeat}
-                      style={styles.heartIcon}
-                      size={30}
-                    />
-                    <Text style={styles.pointsText}>{u.hearts}</Text>
-                    <FontAwesomeIcon
-                      icon={faLeaf}
-                      style={styles.leafIcon}
-                      size={30}
-                    />
-                    <Text style={styles.pointsText}>{u.leaves}</Text>
-                  </View>
-                }
-              />
-            );
-          })}
+            <Text style={styles.header}>Office Top 3</Text>
+            {office.map((u, i) => {
+              return (
+                <ListItem
+                  key={i}
+                  roundAvatar
+                  title={u.name}
+                  leftAvatar={{ source: { uri: u.avatar } }}
+                  bottomDivider
+                  rightTitle={
+                    <View style={styles.pointsContainer}>
+                      <FontAwesomeIcon
+                        icon={faHeartbeat}
+                        style={styles.heartIcon}
+                        size={30}
+                      />
+                      <Text style={styles.pointsText}>{u.hearts}</Text>
+                      <FontAwesomeIcon
+                        icon={faLeaf}
+                        style={styles.leafIcon}
+                        size={30}
+                      />
+                      <Text style={styles.pointsText}>{u.leaves}</Text>
+                    </View>
+                  }
+                />
+              );
+            })}
           </View>
         </Card>
       </ScrollView>
@@ -156,7 +151,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     paddingVertical: 5,
-
   },
   leafIcon: {
     marginLeft: 20,

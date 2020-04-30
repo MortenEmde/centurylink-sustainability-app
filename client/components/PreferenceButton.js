@@ -2,7 +2,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faStar, faLeaf, faHeartbeat, faClock } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar,
+  faLeaf,
+  faHeartbeat,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
 
 const PreferenceButton = ({ type, sortItems }) => {
   const icon = {

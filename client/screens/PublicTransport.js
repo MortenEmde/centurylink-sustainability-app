@@ -41,7 +41,7 @@ const PublicTransport = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-            <Modal
+      <Modal
         animationType="fade"
         transparent={true}
         visible={modalBikeRentalVisible}
@@ -113,14 +113,13 @@ const PublicTransport = ({ navigation }) => {
                 Bringing lunch for colleagues?
               </Text>
               <Slider
-                
                 value={lunchForColleagues}
                 minimumValue={0}
                 maximumValue={10}
                 step={1}
                 onValueChange={(value) => setLunchForColleagues(value)}
               />
-              <Text style={{fontSize: 20}}>{lunchForColleagues}</Text>
+              <Text style={{ fontSize: 20 }}>{lunchForColleagues}</Text>
             </View>
             <View style={styles.doneButtonLunch}>
               <TouchableHighlight
@@ -145,7 +144,11 @@ const PublicTransport = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={[styles.modalText],{fontSize: 25, marginBottom: 30}}>Select your desk</Text>
+            <Text
+              style={([styles.modalText], { fontSize: 25, marginBottom: 30 })}
+            >
+              Select your desk
+            </Text>
             <View style={styles.office}>
               <Image
                 source={require('../assets/office.png')}
@@ -190,7 +193,8 @@ const PublicTransport = ({ navigation }) => {
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
-        <Button style={{ marginLeft: 25}}
+        <Button
+          style={{ marginLeft: 25 }}
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Rent a Bike"
           onPress={() => {
@@ -202,7 +206,7 @@ const PublicTransport = ({ navigation }) => {
       <View style={styles.option}>
         <View style={styles.iconSet}>
           <FontAwesomeIcon icon={faToolbox} size={60} />
-          <FontAwesomeIcon icon={faUtensils} size={60} />    
+          <FontAwesomeIcon icon={faUtensils} size={60} />
         </View>
         <View style={styles.mainPoints}>
           <View style={styles.pointsRow}>
@@ -231,7 +235,7 @@ const PublicTransport = ({ navigation }) => {
           <FontAwesomeIcon icon={faDesktop} size={60} />
           <FontAwesomeIcon icon={faChair} size={60} />
         </View>
-  
+
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Select Desk"
@@ -242,9 +246,14 @@ const PublicTransport = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ marginHorizontal: 20, marginTop: 70, height: 60, backgroundColor: '#3b8348', }}
+        buttonStyle={{
+          marginHorizontal: 20,
+          marginTop: 70,
+          height: 60,
+          backgroundColor: '#3b8348',
+        }}
         title="Start journey"
-        titleStyle={{fontWeight: 'bold', fontSize: 20}}
+        titleStyle={{ fontWeight: 'bold', fontSize: 20 }}
         onPress={() => navigation.push('Confirmation')}
       />
     </View>
@@ -288,8 +297,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: 'black',
-    
-    width: '100%'
+
+    width: '100%',
   },
   employeeText: {
     fontSize: 18,
@@ -373,7 +382,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 20,
   },
   modalText: {
     margin: 15,
@@ -383,7 +392,7 @@ const styles = StyleSheet.create({
   doneButtonLunch: {
     alignSelf: 'center',
     marginTop: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
 });
 

@@ -63,23 +63,27 @@ const Driving = ({ navigation }) => {
               <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
             </View>
             <View style={styles.driverChoice}>
-              <View style={{alignItems: 'center', marginRight: 20}}>
+              <View style={{ alignItems: 'center', marginRight: 20 }}>
                 <Button
                   buttonStyle={{ backgroundColor: '#3b8348' }}
                   icon={
-                <FontAwesomeIcon icon={faCar} size={60} marginRight={0} />
+                    <FontAwesomeIcon icon={faCar} size={60} marginRight={0} />
                   }
                 />
                 <Text>As driver</Text>
               </View>
-              <View style={{alignItems: 'center', marginLeft: 20}}>
-              <Button
+              <View style={{ alignItems: 'center', marginLeft: 20 }}>
+                <Button
                   buttonStyle={{ backgroundColor: '#b6d688' }}
                   icon={
-                <FontAwesomeIcon icon={faUserFriends} size={60} marginLeft={0} />
+                    <FontAwesomeIcon
+                      icon={faUserFriends}
+                      size={60}
+                      marginLeft={0}
+                    />
                   }
                 />
-              <Text>As Passenger</Text>
+                <Text>As Passenger</Text>
               </View>
             </View>
             <View style={styles.map}>
@@ -139,14 +143,13 @@ const Driving = ({ navigation }) => {
                 Bringing lunch for colleagues?
               </Text>
               <Slider
-                
                 value={lunchForColleagues}
                 minimumValue={0}
                 maximumValue={10}
                 step={1}
                 onValueChange={(value) => setLunchForColleagues(value)}
               />
-              <Text style={{fontSize: 20}}>{lunchForColleagues}</Text>
+              <Text style={{ fontSize: 20 }}>{lunchForColleagues}</Text>
             </View>
             <View style={styles.doneButtonLunch}>
               <TouchableHighlight
@@ -171,7 +174,11 @@ const Driving = ({ navigation }) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={[styles.modalText],{fontSize: 25, marginBottom: 30}}>Select your desk</Text>
+            <Text
+              style={([styles.modalText], { fontSize: 25, marginBottom: 30 })}
+            >
+              Select your desk
+            </Text>
             <View style={styles.office}>
               <Image
                 source={require('../assets/office.png')}
@@ -215,7 +222,8 @@ const Driving = ({ navigation }) => {
             <Text style={styles.pointsText}>+{11}</Text>
           </View>
         </View>
-        <Button style={{ marginLeft: 50}}
+        <Button
+          style={{ marginLeft: 50 }}
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Carpool"
           onPress={() => {
@@ -226,7 +234,7 @@ const Driving = ({ navigation }) => {
       <View style={styles.option}>
         <View style={styles.iconSet}>
           <FontAwesomeIcon icon={faToolbox} size={60} />
-          <FontAwesomeIcon icon={faUtensils} size={60} />    
+          <FontAwesomeIcon icon={faUtensils} size={60} />
         </View>
         <View style={styles.mainPoints}>
           <View style={styles.pointsRow}>
@@ -255,7 +263,7 @@ const Driving = ({ navigation }) => {
           <FontAwesomeIcon icon={faDesktop} size={60} />
           <FontAwesomeIcon icon={faChair} size={60} />
         </View>
-  
+
         <Button
           buttonStyle={{ backgroundColor: '#3b8348' }}
           title="Select Desk"
@@ -266,9 +274,14 @@ const Driving = ({ navigation }) => {
       </View>
 
       <Button
-        buttonStyle={{ marginHorizontal: 20, marginTop: 70, height: 60, backgroundColor: '#3b8348', }}
+        buttonStyle={{
+          marginHorizontal: 20,
+          marginTop: 70,
+          height: 60,
+          backgroundColor: '#3b8348',
+        }}
         title="Start journey"
-        titleStyle={{fontWeight: 'bold', fontSize: 20}}
+        titleStyle={{ fontWeight: 'bold', fontSize: 20 }}
         onPress={() => navigation.push('Confirmation')}
       />
     </View>
@@ -312,8 +325,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: 'black',
-    
-    width: '100%'
+
+    width: '100%',
   },
   employeeText: {
     fontSize: 18,
@@ -379,7 +392,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     margin: 15,
-    marginBottom: 20
+    marginBottom: 20,
   },
   lunchPref: {
     flexDirection: 'row',
@@ -398,7 +411,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 20,
   },
   modalText: {
     margin: 15,
@@ -408,7 +421,7 @@ const styles = StyleSheet.create({
   doneButtonLunch: {
     alignSelf: 'center',
     marginTop: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
 });
 

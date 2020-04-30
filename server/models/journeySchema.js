@@ -4,43 +4,43 @@ const journeySchema = new mongoose.Schema({
   destination: {
     type: String,
     trim: true,
-    required: [true, 'Please provide destination']
+    required: [true, 'Please provide destination'],
   },
   origin: {
     type: String,
-    required: [true, 'Please provide origin']
+    required: [true, 'Please provide origin'],
   },
   method: {
     type: String,
-    required: [true, 'Please provide method']
+    required: [true, 'Please provide method'],
   },
   time: {
     type: String,
-    required: [true, 'Please provide time']
+    required: [true, 'Please provide time'],
   },
   timeValue: {
     type: Number,
-    required: [true, 'Please provide timevalue']
+    required: [true, 'Please provide timevalue'],
   },
   healthPoints: {
     type: Number,
-    required: [true, 'Please provide healthpoints']
+    required: [true, 'Please provide healthpoints'],
   },
   sustainabilityPoints: {
     type: Number,
-    required: [true, 'Please provide sustainabilitypoints']
+    required: [true, 'Please provide sustainabilitypoints'],
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-journeySchema.pre('save', function(next) {
+journeySchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   return next();
 });

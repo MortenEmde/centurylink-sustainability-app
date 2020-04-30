@@ -10,10 +10,10 @@ exports.getJourneys = async (req, res, next) => {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: 'Server Error'
-    })
+      error: 'Server Error',
+    });
   }
-}
+};
 
 // @desc      Add Journey
 // @route     POST /api/Journeys
@@ -23,17 +23,17 @@ exports.addJourney = async (data, res, next) => {
     const journey = await Journey.create(data);
     return journey;
   } catch (err) {
-    if(err.name === 'ValidationError') {
-      const messages = Object.values(err.errors).map(val => val.message);
+    if (err.name === 'ValidationError') {
+      const messages = Object.values(err.errors).map((val) => val.message);
 
       return res.status(400).json({
         success: false,
-        error: messages
+        error: messages,
       });
     } else {
       return res.status(500).json({
         success: false,
-        error: 'Server Error'
+        error: 'Server Error',
       });
     }
   }

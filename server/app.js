@@ -4,14 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db.js');
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const usersRouter = require('./routes/users');
 
 const cors = require('cors');
-dotenv.config({path: './config/config.env'});
+const connectDB = require('./config/db.js');
+dotenv.config({ path: './config/config.env' });
 
 connectDB();
 

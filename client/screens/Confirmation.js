@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHeartbeat, faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { faSmile } from '@fortawesome/free-regular-svg-icons';
@@ -8,27 +8,36 @@ import { Card } from 'react-native-elements';
 const Confirmation = () => {
   return (
     <View style={styles.container}>
-    <Card >
-      <View style={styles.card}> 
-      <Text style={styles.text}>Your points are pending...</Text>
-      <View style={styles.mainPoints}>
-        <View style={styles.pointsRow}>
+      <Card>
+        <View style={styles.card}>
+          <Text style={styles.text}>Your points are pending...</Text>
+          <View style={styles.mainPoints}>
+            <View style={styles.pointsRow}>
+              <FontAwesomeIcon
+                icon={faHeartbeat}
+                style={styles.heartIcon}
+                size={40}
+              />
+              <Text style={styles.pointsText}>+{5}</Text>
+            </View>
+            <View style={styles.pointsRow}>
+              <FontAwesomeIcon
+                icon={faLeaf}
+                style={styles.leafIcon}
+                size={40}
+              />
+              <Text style={styles.pointsText}>+{11}</Text>
+            </View>
+          </View>
           <FontAwesomeIcon
-            icon={faHeartbeat}
-            style={styles.heartIcon}
-            size={40}
+            style={styles.smileIcon}
+            icon={faSmile}
+            color={'#3b8348'}
+            size={90}
           />
-          <Text style={styles.pointsText}>+{5}</Text>
+          <Text style={styles.text}>Have a nice Journey!</Text>
         </View>
-        <View style={styles.pointsRow}>
-          <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
-          <Text style={styles.pointsText}>+{11}</Text>
-        </View>
-      </View>
-      <FontAwesomeIcon style={styles.smileIcon} icon={faSmile} color={'#3b8348'} size={90} />
-      <Text style={styles.text}>Have a nice Journey!</Text>
-      </View>
-    </Card>
+      </Card>
     </View>
   );
 };
@@ -72,7 +81,6 @@ const styles = StyleSheet.create({
   smileIcon: {
     marginBottom: 15,
   },
-})
+});
 
 export default Confirmation;
-

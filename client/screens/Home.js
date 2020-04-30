@@ -9,19 +9,19 @@ const Home = ({ navigation }) => {
   const [preference, setPreference] = useState('star');
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
-  
+
   const updateJourney = (newOrigin, newDestination) => {
     setOrigin(newOrigin);
     setDestination(newDestination);
     console.log(newOrigin, newDestination);
-  }
-  
+  };
+
   const sortItems = (newPreference) => {
     setPreference(newPreference);
   };
 
-  const journey = {origin, destination, updateJourney};
-  
+  const journey = { origin, destination, updateJourney };
+
   return (
     <JourneyContext.Provider value={journey}>
       <View style={styles.container}>
@@ -40,7 +40,7 @@ const Home = ({ navigation }) => {
             navigation={navigation}
             origin={origin}
             destination={destination}
-            />
+          />
         </View>
       </View>
     </JourneyContext.Provider>

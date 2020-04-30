@@ -9,19 +9,28 @@ const JourneyPlanner = () => {
 
   return (
     <JourneyContext.Consumer>
-      {({origin, destination, updateJourney}) => (
+      {({ origin, destination, updateJourney }) => (
         <View style={styles.container}>
           <Input
-          leftIcon={{ type: 'font-awesome', name: 'home', marginRight: 15 }}
-          placeholder="Add your departure location"
-          onChangeText={newOrigin => setInputOrigin(newOrigin)}
-        />
+            leftIcon={{ type: 'font-awesome', name: 'home', marginRight: 15 }}
+            placeholder="Add your departure location"
+            onChangeText={(newOrigin) => setInputOrigin(newOrigin)}
+          />
           <Input
-            leftIcon={{ type: 'font-awesome', name: 'briefcase', marginRight: 15 }}
+            leftIcon={{
+              type: 'font-awesome',
+              name: 'briefcase',
+              marginRight: 15,
+            }}
             placeholder="Add your destination"
-            onChangeText={newDestination => setInputDestination(newDestination)}
-            />
-        <Button onPress={() => updateJourney(inputOrigin, inputDestination)} title="Submit" />
+            onChangeText={(newDestination) =>
+              setInputDestination(newDestination)
+            }
+          />
+          <Button
+            onPress={() => updateJourney(inputOrigin, inputDestination)}
+            title="Submit"
+          />
         </View>
       )}
     </JourneyContext.Consumer>

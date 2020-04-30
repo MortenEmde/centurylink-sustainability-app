@@ -24,18 +24,18 @@ const Profile = () => {
           <Text style={styles.department}>Department: Technology</Text>
         </View>
         <View style={styles.allPoints}>
-        <View style={styles.pointsRow}>
-          <FontAwesomeIcon
-            icon={faHeartbeat}
-            style={styles.heartIcon}
-            size={40}
-          />
-          <Text style={styles.pointsText}>{42}</Text>
-        </View>
-        <View style={styles.pointsRow}>
-          <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
-          <Text style={styles.pointsText}>{41}</Text>
-        </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon
+              icon={faHeartbeat}
+              style={styles.heartIcon}
+              size={40}
+            />
+            <Text style={styles.pointsText}>{42}</Text>
+          </View>
+          <View style={styles.pointsRow}>
+            <FontAwesomeIcon icon={faLeaf} style={styles.leafIcon} size={40} />
+            <Text style={styles.pointsText}>{41}</Text>
+          </View>
         </View>
       </Card>
     </View>

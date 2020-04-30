@@ -2,15 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import CardTravelRecommendation from './CardTravelRecommendation';
 
-const ContainerTravelRecommendation = ({ preference, navigation, origin, destination }) => {
+const ContainerTravelRecommendation = ({
+  preference,
+  navigation,
+  origin,
+  destination,
+}) => {
   const [journeyData, setJourneyData] = useState([]);
 
-  const fetchData = async (origin, destination) => {    
+  const fetchData = async (origin, destination) => {
     const unparsedData = await fetch('http://localhost:5000/api', {
       method: 'POST',
-      body: JSON.stringify({origin, destination}),
+      body: JSON.stringify({ origin, destination }),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
     });
     const data = await unparsedData.json();
@@ -70,8 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 230,
   },
-  journeyList: {
-  }
+  journeyList: {},
 });
 
 export default ContainerTravelRecommendation;
