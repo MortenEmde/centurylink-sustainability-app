@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 // const fetch = require('node-fetch');
 const { getJourneys, addJourney } = require('../controllers/journeyController');
@@ -14,9 +15,8 @@ router.post('/', async function (req, res, next) {
 
   // if route already exists in database, serve from database
   const databaseHits = await journeys.filter(
-    (journey) =>
-      journey.origin === requestOrigin.toLowerCase() &&
-      journey.destination === requestDestination.toLowerCase(),
+    (journey) => journey.origin === requestOrigin.toLowerCase()
+      && journey.destination === requestDestination.toLowerCase(),
   );
   if (databaseHits.length > 0) {
     // send from mongoDB
@@ -39,7 +39,7 @@ router.post('/', async function (req, res, next) {
       // const request = await fetch(`INSERT URL HERE`);
       // const data = await request.json();
       // return data;
-      const requestPoints = require(`../mock/points.json`);
+      const requestPoints = require('../mock/points.json');
       return requestPoints;
     };
 

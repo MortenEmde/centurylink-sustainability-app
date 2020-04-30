@@ -3,7 +3,7 @@ const Journey = require('../models/journeySchema');
 // @desc      GET all Journeys
 // @route     GET /api/Journeys
 // @access    Public
-exports.getJourneys = async (req, res, next) => {
+exports.getJourneys = async (req, res) => {
   try {
     const journeys = await Journey.find();
     return journeys;
@@ -18,7 +18,7 @@ exports.getJourneys = async (req, res, next) => {
 // @desc      Add Journey
 // @route     POST /api/Journeys
 // @access    Public
-exports.addJourney = async (data, res, next) => {
+exports.addJourney = async (data, res) => {
   try {
     const journey = await Journey.create(data);
     return journey;
@@ -30,12 +30,11 @@ exports.addJourney = async (data, res, next) => {
         success: false,
         error: messages,
       });
-    } else {
-      return res.status(500).json({
-        success: false,
-        error: 'Server Error',
-      });
     }
+    return res.status(500).json({
+      success: false,
+      error: 'Server Error',
+    });
   }
 };
 

@@ -6,13 +6,13 @@ const logger = require('morgan');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const ni = require('os').networkInterfaces();
+const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const usersRouter = require('./routes/users');
-
-const cors = require('cors');
 const connectDB = require('./config/db.js');
+
 dotenv.config({ path: './config/config.env' });
 
 connectDB();
@@ -39,14 +39,15 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-fs.writeFileSync('../client/ip.json', 
-  JSON.stringify({local: [].concat.apply([], Object.values(ni))
-  .filter(details => details.family === 'IPv4' && !details.internal)
-  .pop().address})
-);
+fs.writeFileSync('../client/ip.json',
+  JSON.stringify({
+    local: [].concat.apply([], Object.values(ni))
+      .filter((details) => details.family === 'IPv4' && !details.internal)
+      .pop().address,
+  }));
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
