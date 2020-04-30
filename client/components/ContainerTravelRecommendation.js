@@ -9,9 +9,10 @@ const ContainerTravelRecommendation = ({
   destination,
 }) => {
   const [journeyData, setJourneyData] = useState([]);
+  const ip = require('../ip.json');
 
   const fetchData = async (origin, destination) => {
-    const unparsedData = await fetch('http://localhost:5000/api', {
+    const unparsedData = await fetch(`http://${ip.local}:5000/api`, {
       method: 'POST',
       body: JSON.stringify({ origin, destination }),
       headers: {

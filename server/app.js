@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dotenv = require('dotenv');
+const fs = require('fs');
+const ni = require('os').networkInterfaces();
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
@@ -36,6 +38,12 @@ app.use('/api', apiRouter);
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+fs.writeFileSync('../client/ip.json', 
+  JSON.stringify({local: [].concat.apply([], Object.values(ni))
+  .filter(details => details.family === 'IPv4' && !details.internal)
+  .pop().address})
+);
 
 // error handler
 app.use(function (err, req, res, next) {
