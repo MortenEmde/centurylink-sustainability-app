@@ -13,7 +13,6 @@ const Home = ({ navigation }) => {
   const updateJourney = (newOrigin, newDestination) => {
     setOrigin(newOrigin);
     setDestination(newDestination);
-    console.log(newOrigin, newDestination);
   };
 
   const sortItems = (newPreference) => {

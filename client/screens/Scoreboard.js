@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
-import { Card, ListItem, Divider } from 'react-native-elements';
+import { Card, ListItem } from 'react-native-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faLeaf, faHeartbeat } from '@fortawesome/free-solid-svg-icons';
 

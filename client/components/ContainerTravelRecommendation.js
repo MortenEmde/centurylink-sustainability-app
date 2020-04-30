@@ -11,7 +11,7 @@ const ContainerTravelRecommendation = ({
   const [journeyData, setJourneyData] = useState([]);
   const ip = require('../ip.json');
 
-  const fetchData = async (origin, destination) => {
+  const fetchData = async () => {
     const unparsedData = await fetch(`http://${ip.local}:5000/api`, {
       method: 'POST',
       body: JSON.stringify({ origin, destination }),
@@ -35,18 +35,18 @@ const ContainerTravelRecommendation = ({
     }
   };
 
-  const sortFunction = (a, b, preference) => {
-    if (preference === 'star') {
+  const sortFunction = (a, b, pref) => {
+    if (pref === 'star') {
       return (
         b.healthPoints +
         b.sustainabilityPoints -
         (a.healthPoints + a.sustainabilityPoints)
       );
     }
-    if (preference === 'time') {
+    if (pref === 'time') {
       return a.timeValue - b.timeValue;
     }
-    if (preference === 'environment') {
+    if (pref === 'environment') {
       return b.sustainabilityPoints - a.sustainabilityPoints;
     }
     return b.healthPoints - a.healthPoints;

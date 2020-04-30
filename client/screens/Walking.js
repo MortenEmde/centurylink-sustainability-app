@@ -27,14 +27,11 @@ const Walking = ({ navigation }) => {
   const [modalLunchVisible, setModalLunchVisible] = useState(false);
   const [modalDeskVisible, setModalDeskVisible] = useState(false);
 
-  const [isCarpool, setIsCarpool] = useState(false);
   const [isBringingLunch, setIsBringingLunch] = useState(false);
   const [isBringingCup, setIsBringingCup] = useState(false);
   const [lunchForColleagues, setLunchForColleagues] = useState(0);
   const [isBringingPlastic, setIsBringingPlastic] = useState(false);
 
-  const toggleCarpoolSwitch = () =>
-    setIsCarpool((previousState) => !previousState);
   const toggleLunchSwitch = () =>
     setIsBringingLunch((previousState) => !previousState);
   const toggleCupSwitch = () =>
@@ -93,24 +90,18 @@ const Walking = ({ navigation }) => {
             <View style={styles.lunchChoices}>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own lunch?</Text>
-                <Switch
-                  onChange={toggleLunchSwitch}
-                  value={isBringingLunch}
-                ></Switch>
+                <Switch onChange={toggleLunchSwitch} value={isBringingLunch} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own cup?</Text>
-                <Switch
-                  onChange={toggleCupSwitch}
-                  value={isBringingCup}
-                ></Switch>
+                <Switch onChange={toggleCupSwitch} value={isBringingCup} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>No single use plastics?</Text>
                 <Switch
                   onChange={togglePlasticSwitch}
                   value={isBringingPlastic}
-                ></Switch>
+                />
               </View>
             </View>
 
@@ -277,7 +268,7 @@ const styles = StyleSheet.create({
     margin: 3,
   },
   pointsText: {
-    fontSize: 50,
+    fontSize: 20,
     marginTop: 10,
   },
   leafIcon: {
@@ -293,15 +284,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  pointsText: {
-    fontSize: 20,
-  },
   employeeCount: {
     alignItems: 'flex-start',
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: 'black',
-
     width: '100%',
   },
   employeeText: {

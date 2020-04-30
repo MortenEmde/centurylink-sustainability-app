@@ -87,24 +87,18 @@ const PublicTransport = ({ navigation }) => {
             <View style={styles.lunchChoices}>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own lunch?</Text>
-                <Switch
-                  onChange={toggleLunchSwitch}
-                  value={isBringingLunch}
-                ></Switch>
+                <Switch onChange={toggleLunchSwitch} value={isBringingLunch} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own cup?</Text>
-                <Switch
-                  onChange={toggleCupSwitch}
-                  value={isBringingCup}
-                ></Switch>
+                <Switch onChange={toggleCupSwitch} value={isBringingCup} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>No single use plastics?</Text>
                 <Switch
                   onChange={togglePlasticSwitch}
                   value={isBringingPlastic}
-                ></Switch>
+                />
               </View>
             </View>
 
@@ -273,7 +267,7 @@ const styles = StyleSheet.create({
     margin: 3,
   },
   pointsText: {
-    fontSize: 50,
+    fontSize: 20,
     marginTop: 10,
   },
   leafIcon: {
@@ -288,9 +282,6 @@ const styles = StyleSheet.create({
   pointsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  pointsText: {
-    fontSize: 20,
   },
   employeeCount: {
     alignItems: 'flex-start',

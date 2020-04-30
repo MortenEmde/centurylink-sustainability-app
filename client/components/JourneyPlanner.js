@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import { Input } from 'react-native-elements';
 import { JourneyContext } from '../contexts/journey.js';
 

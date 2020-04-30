@@ -60,7 +60,7 @@ const Driving = ({ navigation }) => {
           <View style={styles.modalView}>
             <View style={styles.carpoolPref}>
               <Text style={styles.modalText}>Do you want to Carpool?</Text>
-              <Switch onChange={toggleCarpoolSwitch} value={isCarpool}></Switch>
+              <Switch onChange={toggleCarpoolSwitch} value={isCarpool} />
             </View>
             <View style={styles.driverChoice}>
               <View style={{ alignItems: 'center', marginRight: 20 }}>
@@ -117,24 +117,18 @@ const Driving = ({ navigation }) => {
             <View style={styles.lunchChoices}>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own lunch?</Text>
-                <Switch
-                  onChange={toggleLunchSwitch}
-                  value={isBringingLunch}
-                ></Switch>
+                <Switch onChange={toggleLunchSwitch} value={isBringingLunch} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>Bringing own cup?</Text>
-                <Switch
-                  onChange={toggleCupSwitch}
-                  value={isBringingCup}
-                ></Switch>
+                <Switch onChange={toggleCupSwitch} value={isBringingCup} />
               </View>
               <View style={styles.lunchPref}>
                 <Text style={styles.modalText}>No single use plastics?</Text>
                 <Switch
                   onChange={togglePlasticSwitch}
                   value={isBringingPlastic}
-                ></Switch>
+                />
               </View>
             </View>
 
@@ -301,7 +295,7 @@ const styles = StyleSheet.create({
     margin: 3,
   },
   pointsText: {
-    fontSize: 50,
+    fontSize: 20,
     marginTop: 10,
   },
   leafIcon: {
@@ -317,15 +311,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  pointsText: {
-    fontSize: 20,
-  },
   employeeCount: {
     alignItems: 'flex-start',
     paddingVertical: 20,
     paddingHorizontal: 20,
     backgroundColor: 'black',
-
     width: '100%',
   },
   employeeText: {
