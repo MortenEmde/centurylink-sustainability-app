@@ -8,7 +8,7 @@ A proof of concept sustainability-focused Travel app. The puropse of it is to de
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Original Creators](#Original\ Creators)
+- [Creators](#Creators)
 
 ## Installation
 
@@ -40,7 +40,7 @@ If you want to run the App on your mobile device, you can scan the QR code that 
 
 To exit the Server, Type CTRL + C  in the Terminal.
 
-## Original Creators
+## Creators
 
 - [Richard Rietdijk](https://github.com/richardrietdijk)
 - [Helena Nicholson](https://github.com/hlmnicholson)
