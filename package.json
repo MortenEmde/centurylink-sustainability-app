@@ -1,0 +1,11 @@
+{
+  "name": "sustainabilityapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm i && concurrently \"cd server && npm i && npm run start\" \"cd  client && npm i && npm run ios\""
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

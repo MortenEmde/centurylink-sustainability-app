@@ -8,9 +8,6 @@ router.post('/', async function (req, res, next) {
   const requestOrigin = req.body.origin;
   const requestDestination = req.body.destination;
 
-  console.log(req.body);
-  console.log(requestOrigin, requestDestination);
-
   const journeys = await getJourneys(req, res, next);
 
   // if route already exists in database, serve from database
